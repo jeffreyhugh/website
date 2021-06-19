@@ -40,7 +40,7 @@ export default function content() {
             </Element>
 
             <Element>
-                <Highlight language={'js'}>
+                <pre>
                     {`function add(x, y) {
     return (x + y)
 }
@@ -54,7 +54,7 @@ const add = (x, y) => {
 }
 
 const add = (x, y) => (x + y)`}
-                </Highlight>
+                </pre>
             </Element>
 
             <Spacer/>

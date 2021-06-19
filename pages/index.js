@@ -155,7 +155,7 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 </HeaderPipe>
 
                 <CardWrapper>
-                    <CopyCard title={"XMR"} content={"42k2t7nJ7osN2EL6fEPPAy3yR2s6zHSVmLE8vwVPz8BPGT1dtf3hk3MSzaG7P4rvViJfSjaaSPwyq4r1jTmKcqkpHuargMc"} key={1}/>
+                    <CopyCard title={"XMR"} content={"42k2t7nJ7osN2EL6fEP\nPAy3yR2s6zHSVmLE8vw\nVPz8BPGT1dtf3hk3MSz\naG7P4rvViJfSjaaSPwy\nq4r1jTmKcqkpHuargMc"} key={1}/>
                 </CardWrapper>
 
             </BigContainer>

@@ -86,7 +86,7 @@ pre {
   /*font-family: OxygenMono, monospace;*/
   font-size: 0.8rem;
   background-color: var(--altBackground);
-  padding: 0 0.3rem;
+  padding: 0.3rem;
   color: var(--altText);
 }
 
