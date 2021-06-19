@@ -73,7 +73,7 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
 
                         <span>
                             I also build keyboards in my free time!
-                            Since everyone always asks how I use my 40% ortho as a daily driver, I <Link href={"/posts/00"}><a>wrote a blog post about it</a></Link>.
+                            Since I get a lot of questions about how I use my 40% ortho as a daily driver, I <Link href={"/posts/00"}><a>wrote a blog post about it</a></Link>.
                         </span>
                     </Container>
                 </Element>
