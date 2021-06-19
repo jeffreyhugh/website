@@ -1,0 +1,95 @@
+@font-face {
+  font-family: 'Arimo';
+  src: url("/fonts/Arimo/Arimo.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'OxygenMono';
+  src: url("/fonts/OxygenMono/OxygenMono-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+
+  /* DARK */
+  --main: #5ee7df;
+  --via: #9063CD;
+  --final: #ff69b4;
+  --textColor: #e4e4e4;
+  --altText: #ffffff;
+  --background: black;
+  --altBackground: #0f0f0f;
+
+  --brightness: 70%;
+
+  /* LIGHT */
+  /*--main: #ff0844;*/
+  /*--alt: #ffb199;*/
+  /*--textColor: black;*/
+  /*--backgroundColor: white;*/
+  /*--brightness: 100%;*/
+
+  --gradient: linear-gradient(169deg, var(--main), var(--via), var(--final));
+  /*--gradient: radial-gradient(var(--main), var(--via), var(--final));*/
+
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arimo, sans-serif;
+  font-size: 20px;
+}
+
+body {
+  background-color: var(--background);
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--textColor);
+  margin: 0;
+  /*transition: 0.3s;*/
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+a {
+  text-decoration: none;
+  text-shadow: 0 0 0.5rem var(--textColor) ;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-family: OxygenMono, monospace;
+  font-size: 0.8rem;
+  background-color: var(--altBackground);
+  padding: 0 0.3rem;
+  color: var(--altText);
+}
+
+pre {
+  /*font-family: OxygenMono, monospace;*/
+  font-size: 0.8rem;
+  background-color: var(--altBackground);
+  padding: 0 0.3rem;
+  color: var(--altText);
+}
+
+.hljs {
+  background: var(--altBackground);
+}

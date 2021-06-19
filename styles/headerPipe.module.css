@@ -1,0 +1,45 @@
+.vertBarWrapper {
+    display: grid;
+    height: 60%;
+    padding: 0 0.5rem;
+    margin-left: 0.5rem;
+    margin-right: 1rem;
+}
+
+.vertBar {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    width: 8px;
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+    border-radius: 5px;
+}
+
+.vertBarShadow {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    width: 5px;
+    top: -2px;
+    filter: blur(6px);
+    border-radius: 5px;
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.content {
+    display: flex;
+    flex-grow: 1;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 1;
+}

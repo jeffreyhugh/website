@@ -1,0 +1,68 @@
+.spacer {
+    height: 1.3rem;
+}
+
+.bigParent {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.bigContainer {
+    display: flex;
+    justify-content: center;
+    width: min(95%, 1100px);
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.element {
+    display: flex;
+    flex-direction: row;
+    margin: 0.5rem;
+    align-items: center;
+}
+
+@media screen and (max-width:900px) {
+    .element {
+        flex-direction: column;
+    }
+}
+
+.rounded {
+    border-radius: 50%;
+}
+
+.humanImage {
+    object-fit: cover;
+    padding: 0.7rem;
+    width: 35%;
+}
+
+.darkened {
+    filter: brightness(var(--brightness));
+}
+
+.rightMarginIcon {
+    margin-right: 0.4rem;
+}
+
+.leftMarginIcon {
+    margin-left: 0.4rem;
+}
+
+/*.gradient {*/
+/*    background-image: var(--gradient);*/
+/*    background-attachment: fixed;*/
+/*    animation: moveAnim 10s ease infinite;*/
+/*}*/
+
+/*@keyframes moveAnim {*/
+/*    0%{background-position:50% 50%}*/
+/*    50%{background-position:100% 50%}*/
+/*    100%{background-position:50% 50%}*/
+/*}*/

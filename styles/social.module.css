@@ -1,0 +1,100 @@
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0 0 1rem;
+    padding: 0.35rem;
+}
+
+.containerShadowWrapper {
+    display: grid;
+    width: 3rem;
+    height: 3rem;
+    margin: 0.35rem;
+}
+
+.containerShadowWrapper:hover .containerShadow {
+    /*margin-bottom: 0;*/
+    /*opacity: 0.6;*/
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.containerShadowWrapper:hover .icon {
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+/*.containerShadow {*/
+/*    grid-column-start: 1;*/
+/*    grid-column-end: 1;*/
+/*    grid-row-start: 1;*/
+/*    grid-row-end: 1;*/
+/*    filter: blur(6px);*/
+/*    background-image: linear-gradient(to bottom, var(--main), var(--alt));*/
+/*    margin-bottom: -10%;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    z-index: -50;*/
+/*    border-radius: 5px;*/
+/*    opacity: 0.3;*/
+/*}*/
+
+/*.container {*/
+/*    grid-column-start: 1;*/
+/*    grid-column-end: 1;*/
+/*    grid-row-start: 1;*/
+/*    grid-row-end: 1;*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    font-size: 1.8rem;*/
+/*    background-image: linear-gradient(to bottom, var(--main), var(--alt));*/
+/*    border-radius: 10px;*/
+/*}*/
+
+.containerShadow {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    background-color: var(--textColor);
+    background-image: linear-gradient(to bottom, var(--textColor), var(--textColor));
+    border-radius: 10px;
+}
+
+.container {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    background-color: var(--background);
+    margin: 0.2rem;
+    border-radius: 5px;
+}
+
+.a {
+    text-decoration: none ;
+    text-shadow: none;
+}
+
+.a:hover {
+    text-decoration: none;
+}
+
+.icon {
+    background-color: var(--textColor);
+    background-image: linear-gradient(to bottom, var(--textColor), var(--textColor));
+    background-attachment: fixed;
+    color: transparent;
+    background-clip: text;
+}
