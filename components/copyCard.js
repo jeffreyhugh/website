@@ -8,7 +8,7 @@ export function CopyCard({title, content}) {
         <>
             <div className={cardStyles.containerShadowWrapper} onClick={async e => {
                 await navigator.clipboard.writeText(content.replaceAll('\n',''));
-                let prompt = document.getElementById('ctcPrompt');
+                let prompt = document.getElementById('ctcPrompt' + title);
                 prompt.innerHTML = 'Copied!';
                 await new Promise(r => setTimeout(r, 2000));
                 prompt.innerHTML = '(Click to copy)';
@@ -18,7 +18,7 @@ export function CopyCard({title, content}) {
                     <div className={`${textStyles.medium} ${textStyles.bold}`}>
                         {title}
                     </div>
-                    <div className={`${textStyles.small} ${textStyles.faint}`} id={"ctcPrompt"}>
+                    <div className={`${textStyles.small} ${textStyles.faint}`} id={"ctcPrompt" + title}>
                         (Click to copy)
                     </div>
                     <div className={`${textStyles.mono} ${textStyles.small} ${cardStyles.centered}`} id={"copyTarget"}>
