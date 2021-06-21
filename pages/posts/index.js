@@ -22,7 +22,6 @@ export default function PostsIndex({allPostsData}) {
                 <HeaderPipe>
                     <Container>
                         <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
-                            <i className={`fa fa-pencil ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>
                             All Posts
                         </div>
                         <div className={`${textStyles.large}`}>
