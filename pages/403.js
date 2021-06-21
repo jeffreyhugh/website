@@ -1,27 +1,27 @@
-import BigContainer from "../components/bigContainer";
-import Head from "next/head";
 import Meta from "../components/meta";
+import Head from "next/head";
+import BigContainer from "../components/bigContainer";
 import Spacer from "../components/spacer";
 import HeaderPipe from "../components/headerPipe";
+import Container from "../components/container";
 import textStyles from "../styles/text.module.css";
 import BackHome from "../components/backHome";
-import Container from "../components/container";
 
-export default function Error({ statusCode }) {
+export default function Error() {
     return (
         <Meta>
             <Head>
-                <title>{`QueueBot - Error ${statusCode}`}</title>
+                <title>{`QueueBot - 403`}</title>
             </Head>
             <BigContainer>
                 <Spacer/>
                 <HeaderPipe>
                     <Container>
                         <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
-                            Error {statusCode}
+                            Error 403
                         </div>
                         <div className={`${textStyles.large}`}>
-                            Sorry about that
+                            It looks like you don't have permission to access that resource.
                         </div>
                     </Container>
                 </HeaderPipe>
@@ -32,9 +32,4 @@ export default function Error({ statusCode }) {
             </BigContainer>
         </Meta>
     )
-}
-
-Error.getInitialProps = ({ res, err }) => {
-    const statusCode = res ? res.statusCode : err ? err.statusCode : 404
-    return { statusCode }
 }
