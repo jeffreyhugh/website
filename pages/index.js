@@ -46,7 +46,7 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 <Element>
                     <div className={`${styles.humanImage} ${styles.darkened}`}>
                         <Image src={"/images/me.png"} alt={'My headshot'} width={150} height={150}
-                               layout={"responsive"} className={styles.rounded}/>
+                               layout={"responsive"} className={styles.rounded} quality={100}/>
                     </div>
                     <Container>
                         <span>
@@ -103,7 +103,7 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 <CardWrapper>
                     {allProjects ? allProjects.map(p => (
                         <Card link={p.link} name={p.name} description={p.description} imageURL={p.imageURL}
-                              order={p.order} key={p.order} newTab={true}/>
+                              order={p.order} key={p.order} newTab={false}/>
                     )) : <></>}
                 </CardWrapper>
 

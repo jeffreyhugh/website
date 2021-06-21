@@ -83,13 +83,83 @@ code {
 }
 
 pre {
-  /*font-family: OxygenMono, monospace;*/
-  font-size: 0.8rem;
+  font-family: OxygenMono, monospace;
+  /*font-size: 0.9rem;*/
   background-color: var(--altBackground);
-  padding: 0.3rem;
+  padding: 0.5rem;
   color: var(--altText);
 }
 
 .hljs {
   background: var(--altBackground);
+}
+
+.hljs,
+.hljs-subst,
+.hljs-tag,
+.hljs-title {
+  color: var(--textColor);
+}
+
+.hljs-strong,
+.hljs-emphasis {
+  color: var(--textColor);
+}
+
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal {
+  color: var(--final);
+}
+
+.hljs-code
+.hljs-selector-class {
+  color: #aaaaff;
+}
+
+.hljs-emphasis,
+.hljs-stronge,
+.hljs-type {
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-function,
+.hljs-section,
+.hljs-symbol,
+.hljs-name {
+  color: #aaaaff;
+}
+
+.hljs-attribute {
+  color: #ff5555;
+}
+
+.hljs-variable,
+.hljs-params,
+.hljs-class .hljs-title {
+  color: var(--via);
+}
+
+.hljs-string,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition,
+.hljs-link {
+  color: var(--final);
+}
+
+.hljs-comment,
+.hljs-meta,
+.hljs-deletion {
+  color: var(--main);
 }

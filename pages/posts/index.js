@@ -8,25 +8,33 @@ import {Card, CardWrapper} from "../../components/card";
 import Date from "../../components/date";
 import {getSortedPostsData} from "../../lib/posts";
 import BackHome from "../../components/backHome";
+import Head from "next/head";
 
 export default function PostsIndex({allPostsData}) {
     return (
         <Meta>
-            <title>{"QueueBot - Posts"}</title>
+            <Head>
+                <title>{"QueueBot - Posts"}</title>
+            </Head>
             <BigContainer>
                 <Spacer/>
                 <HeaderPipe>
                     <Container>
-                        <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>QueueBot
+                        <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
+                            QueueBot
                         </div>
-                        <div className={`${textStyles.large}`}>Examine the consequences</div>
+                        <div className={`${textStyles.large}`}>
+                            Examine the consequences
+                        </div>
                     </Container>
                 </HeaderPipe>
 
                 <Spacer/>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>Posts</div>
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
+                        Posts
+                    </div>
                 </HeaderPipe>
 
                 <CardWrapper>
