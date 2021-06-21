@@ -35,7 +35,7 @@ export default function content() {
             <Element>
                 <span>
                     Is the normal <code>int add(int x, int y)</code> too boring?
-                    Luckily for you, JS has a plethora of ways to define a function and they all have the same outcome.
+                    Lucky for you, JS has a plethora of ways to define a function and they all have the same outcome.
                 </span>
             </Element>
 

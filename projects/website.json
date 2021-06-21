@@ -1,0 +1,7 @@
+{
+  "name": "This website",
+  "imageURL": "",
+  "description": "This website is written with Next.js.",
+  "order": 1,
+  "link": "https://github.com/qbxt/website"
+}
