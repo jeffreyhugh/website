@@ -50,7 +50,7 @@ export default function content() {
             <Spacer/>
 
             <HeaderPipe>
-                <div className={`${textStyles.xlarge} ${textStyles.gradient}`}>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                     But what about the numbers and symbols?
                 </div>
             </HeaderPipe>
@@ -117,7 +117,7 @@ export default function content() {
             <Spacer/>
 
             <HeaderPipe>
-                <div className={`${textStyles.xlarge} ${textStyles.gradient}`}>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                     Can you use it for gaming?
                 </div>
             </HeaderPipe>
@@ -144,7 +144,7 @@ export default function content() {
             <Spacer/>
 
             <HeaderPipe>
-                <div className={`${textStyles.xlarge} ${textStyles.gradient}`}>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                     Parts
                 </div>
             </HeaderPipe>

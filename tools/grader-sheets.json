@@ -1,7 +1,0 @@
-{
-  "name": "Grader Sheets",
-  "imageURL": "",
-  "description": "Pair graders and students from Canvas' submissions.zip (from clicking \"download submissions\"). Handles conflicts of interest and different workloads per grader.",
-  "order": 3,
-  "link": "https://github.com/qbxt/grader-sheets"
-}

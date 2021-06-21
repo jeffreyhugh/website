@@ -9,6 +9,7 @@ import Date from "../../components/date";
 import {getSortedPostsData} from "../../lib/posts";
 import BackHome from "../../components/backHome";
 import Head from "next/head";
+import styles from "../../styles/shared.module.css";
 
 export default function PostsIndex({allPostsData}) {
     return (
@@ -21,21 +22,16 @@ export default function PostsIndex({allPostsData}) {
                 <HeaderPipe>
                     <Container>
                         <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
-                            QueueBot
+                            <i className={`fa fa-pencil ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>
+                            All Posts
                         </div>
                         <div className={`${textStyles.large}`}>
-                            Examine the consequences
+                            Sorted by decreasing date
                         </div>
                     </Container>
                 </HeaderPipe>
 
                 <Spacer/>
-
-                <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        Posts
-                    </div>
-                </HeaderPipe>
 
                 <CardWrapper>
                     {allPostsData ? allPostsData.map(p => (

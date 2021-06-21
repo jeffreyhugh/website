@@ -38,7 +38,7 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
 
                 <HeaderPipe>
                     <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-user ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                        <i className={`fa fa-id-card ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
                         About
                     </div>
                 </HeaderPipe>

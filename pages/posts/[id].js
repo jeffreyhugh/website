@@ -25,8 +25,8 @@ export default function Post({postData}) {
                         <div className={`${textStyles.xxxxlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                             {postData.title}
                         </div>
-                        <div className={textStyles.small}>
-                            &nbsp;by Jeff on <Date dateString={postData.date}/>
+                        <div className={textStyles.large}>
+                            by Jeff on <Date dateString={postData.date}/>
                         </div>
                     </Container>
                 </HeaderPipe>

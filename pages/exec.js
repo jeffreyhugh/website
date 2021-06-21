@@ -29,9 +29,7 @@ export default function Exec() {
                                 <a href={"https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot&permissions=298048"}>
                                     Invite the bot
                                 </a>
-                                <span className={`${textStyles.bold} ${textStyles.gradient}`}>
-                                    &nbsp;or keep reading to see what it does
-                                </span>
+                                &nbsp;or keep reading to see what it does
                             </span>
                         </div>
                     </Container>
@@ -52,6 +50,12 @@ export default function Exec() {
                 </Element>
 
                 <Spacer/>
+
+                <HeaderPipe>
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
+                        Usage
+                    </div>
+                </HeaderPipe>
 
                 <Element>
                     <span>
@@ -79,8 +83,6 @@ export default function Exec() {
                         Code wrapping
                     </div>
                 </HeaderPipe>
-
-                <Spacer/>
 
                 <Element>
                     <span>

@@ -1,7 +1,7 @@
 {
-  "name": "This website",
+  "name": "Personal Website",
   "imageURL": "",
-  "description": "This website is written in Next.js and hosted by Vercel. It's loosely based on the Next.js blog tutorial, but the blog posts are written in JS instead of MD for more consistent formatting.",
+  "description": "This website is written in Next.js. It's loosely based on the Next.js blog tutorial, but the blog posts are written in JS instead of MD for more consistent formatting.",
   "order": 1,
   "link": "https://github.com/qbxt/website"
 }

@@ -27,7 +27,7 @@ export default function content() {
 
 
             <HeaderPipe>
-                <div className={textStyles.xlarge}>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                     There are too many ways to define a function
                 </div>
             </HeaderPipe>
@@ -40,8 +40,7 @@ export default function content() {
             </Element>
 
             <Element>
-                <pre>
-                    {`function add(x, y) {
+                <Highlight language={'js'}>{`function add(x, y) {
     return (x + y)
 }
 
@@ -54,14 +53,14 @@ const add = (x, y) => {
 }
 
 const add = (x, y) => (x + y)`}
-                </pre>
+                </Highlight>
             </Element>
 
             <Spacer/>
 
             <HeaderPipe>
                 <Container>
-                    <div className={textStyles.xlarge}>
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                         Abstract vs Strict Equality Comparison
                     </div>
                     <div className={`${textStyles.small} ${textStyles.faint}`}>
@@ -94,7 +93,7 @@ const add = (x, y) => (x + y)`}
             <Spacer/>
 
             <HeaderPipe>
-                <div className={textStyles.xlarge}>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                     Numbers are only 53 bits
                 </div>
             </HeaderPipe>
