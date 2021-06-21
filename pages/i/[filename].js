@@ -1,9 +1,9 @@
 import {useRouter} from "next/router";
 
 export default function I() {
-    if (process.browser) {
-        const router = useRouter()
-        const { filename } = router.query
+    const router = useRouter()
+    const { filename } = router.query
+    if (filename) {
         window.location = `https://storage.queue.bot/i/${filename}`
     }
 
