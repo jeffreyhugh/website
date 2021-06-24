@@ -17,6 +17,11 @@ export default function Post({postData}) {
         <Meta>
             <Head>
                 <title>{`QueueBot - ${postData.title}`}</title>
+                <meta property={"og:title"} content={postData.title}/>
+                <meta property={"og:type"} content={"website"}/>
+                <meta property={"og:url"} content={`https://queue.bot/posts/${postData.id}`}/>
+                <meta property={"og:description"} content={"QueueBot - Posts"}/>
+                <meta name={"theme-color"} content={"#5ee7df"}/>
             </Head>
             <BigContainer>
                 <Spacer/>

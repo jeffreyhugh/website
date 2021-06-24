@@ -15,6 +15,11 @@ export default function PostsIndex({allPostsData}) {
         <Meta>
             <Head>
                 <title>{"QueueBot - Posts"}</title>
+                <meta property={"og:title"} content={"QueueBot - Posts"}/>
+                <meta property={"og:type"} content={"website"}/>
+                <meta property={"og:url"} content={`https://queue.bot/posts`}/>
+                <meta property={"og:description"} content={"Examine the consequences"}/>
+                <meta name={"theme-color"} content={"#5ee7df"}/>
             </Head>
             <BigContainer>
                 <Spacer/>
