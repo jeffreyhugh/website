@@ -8,6 +8,12 @@
     padding: 0.35rem;
 }
 
+@media screen and (max-width: 500px) {
+    .wrapper {
+        justify-content: center;
+    }
+}
+
 .a {
     text-decoration: none;
     text-shadow: none;

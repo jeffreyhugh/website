@@ -15,7 +15,8 @@ export function Card({imageURL, name, description, link, newTab}) {
                             <div className={cardStyles.container}>
                                 {imageURL ? <Image src={imageURL} alt={name} height={75} width={75}
                                                    className={styles.rounded}/> : <></>}
-                                <div className={`${textStyles.large} ${textStyles.bold} ${cardStyles.padded} ${cardStyles.centered}`}>
+                                <div
+                                    className={`${textStyles.large} ${textStyles.bold} ${cardStyles.padded} ${cardStyles.centered}`}>
                                     {name}
                                 </div>
                                 <div className={textStyles.small}>

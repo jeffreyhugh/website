@@ -1,5 +1,3 @@
-import Image from 'next/image'
-import styles from '../styles/shared.module.css'
 import cardStyles from '../styles/card.module.css'
 import textStyles from '../styles/text.module.css'
 
@@ -7,7 +5,7 @@ export function CopyCard({title, content}) {
     return (
         <>
             <div className={cardStyles.containerShadowWrapper} onClick={async e => {
-                await navigator.clipboard.writeText(content.replaceAll('\n',''));
+                await navigator.clipboard.writeText(content.replaceAll('\n', ''));
                 let prompt = document.getElementById('ctcPrompt' + title);
                 prompt.innerHTML = 'Copied!';
                 await new Promise(r => setTimeout(r, 2000));

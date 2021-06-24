@@ -50,6 +50,10 @@
     font-weight: 700;
 }
 
+.italic {
+    font-style: italic;
+}
+
 .gradient {
     color: transparent;
     background-image: var(--gradient);

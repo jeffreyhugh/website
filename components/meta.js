@@ -14,12 +14,14 @@ export default function Meta({children}) {
                 <link rel={"preload"} href={"/fonts/Oxygen/Oxygen-Regular.ttf"} as={"font"} crossOrigin={""}/>
                 <link rel={"preload"} href={"/fonts/OxygenMono/OxygenMono-Regular.ttf"} as={"font"} crossOrigin={""}/>
 
-                <link rel="icon" href="/favicon.ico" />
-                <meta name="og:title" content={"QueueBot"} />
-                <meta name="og:description" content={"Examine the consequences"} />
-                <meta name="og:type" content={"website"} />
-                <meta name="og:url" content={"https://queue.bot"} />
-                <meta name="theme-color" content={"#5ee7df"} />
+                <meta name={"viewport"} content={"width=device-width, initial-scale=1.0"}/>
+
+                <link rel="icon" href="/favicon.ico"/>
+                <meta name="og:title" content={"QueueBot"}/>
+                <meta name="og:description" content={"Examine the consequences"}/>
+                <meta name="og:type" content={"website"}/>
+                <meta name="og:url" content={"https://queue.bot"}/>
+                <meta name="theme-color" content={"#5ee7df"}/>
             </Head>
             <main>{children}</main>
         </div>

@@ -37,8 +37,9 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 <Spacer/>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-id-card ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"about"}>
+                        <i className={`fa fa-id-card ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                           aria-hidden={true}/>{' '}
                         About
                     </div>
                 </HeaderPipe>
@@ -73,7 +74,8 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
 
                         <span>
                             I also build keyboards in my free time!
-                            Since I get a lot of questions about how I use my 40% ortho as a daily driver, I <Link href={"/posts/00"}><a>wrote a blog post about it</a></Link>.
+                            Since I get a lot of questions about how I use my 40% ortho as a daily driver, I <Link
+                            href={"/posts/00"}><a>wrote a blog post about it</a></Link>.
                         </span>
                     </Container>
                 </Element>
@@ -81,8 +83,9 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 <Spacer/>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-link ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"links"}>
+                        <i className={`fa fa-link ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                           aria-hidden={true}/>{' '}
                         Links
                     </div>
                 </HeaderPipe>
@@ -94,8 +97,9 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 </SocialWrapper>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-cubes ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"projects"}>
+                        <i className={`fa fa-cubes ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                           aria-hidden={true}/>{' '}
                         Projects
                     </div>
                 </HeaderPipe>
@@ -108,8 +112,9 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 </CardWrapper>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-pencil ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"posts"}>
+                        <i className={`fa fa-pencil ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                           aria-hidden={true}/>{' '}
                         Posts {' '}
                         <Link href={"/posts"}>
                             <a style={{textShadow: 'none'}}>
@@ -134,8 +139,9 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 </CardWrapper>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-wrench ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"tools"}>
+                        <i className={`fa fa-wrench ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                           aria-hidden={true}/>{' '}
                         Tools
                     </div>
                 </HeaderPipe>
@@ -148,14 +154,17 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                 </CardWrapper>
 
                 <HeaderPipe>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        <i className={`fa fa-money ${textStyles.gradient} ${styles.rightMarginIcon}`} aria-hidden={true}/>{' '}
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"wallet"}>
+                        <i className={`fa fa-money ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                           aria-hidden={true}/>{' '}
                         Wallet
                     </div>
                 </HeaderPipe>
 
                 <CardWrapper>
-                    <CopyCard title={"XMR"} content={"42k2t7nJ7osN2EL6fEP\nPAy3yR2s6zHSVmLE8vw\nVPz8BPGT1dtf3hk3MSz\naG7P4rvViJfSjaaSPwy\nq4r1jTmKcqkpHuargMc"} key={1}/>
+                    <CopyCard title={"XMR"}
+                              content={"42k2t7nJ7osN2EL6fEP\nPAy3yR2s6zHSVmLE8vw\nVPz8BPGT1dtf3hk3MSz\naG7P4rvViJfSjaaSPwy\nq4r1jTmKcqkpHuargMc"}
+                              key={1}/>
                     <CopyCard title={"BTC"} content={"bc1q0f33nagdzd\nj7l3kdtrrv46qg\n8pn0yzgwf07pj9"}/>
                 </CardWrapper>
 

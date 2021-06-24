@@ -152,7 +152,8 @@ fn main() {
                             Ready to try exec?
                         </div>
                         <div className={`${textStyles.large} ${textStyles.gradient}`}>
-                            <a href={"https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot&permissions=298048"}>Invite the bot</a>
+                            <a href={"https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot&permissions=298048"}>Invite
+                                the bot</a>
                         </div>
                     </Container>
                 </HeaderPipe>
