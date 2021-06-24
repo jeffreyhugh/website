@@ -23,6 +23,11 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
         <Meta>
             <Head>
                 <title>{"QueueBot"}</title>
+                <meta name="og:title" content={"QueueBot"}/>
+                <meta name="og:description" content={"Examine the consequences"}/>
+                <meta name="og:type" content={"website"}/>
+                <meta name="og:url" content={"https://queue.bot"}/>
+                <meta name="theme-color" content={"#5ee7df"}/>
             </Head>
             <BigContainer>
                 <Spacer/>
