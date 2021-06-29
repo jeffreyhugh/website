@@ -5,6 +5,7 @@ import HeaderPipe from "../components/headerPipe";
 import styles from "../styles/shared.module.css";
 import textStyles from "../styles/text.module.css";
 import Keyboard from "../components/keyboard";
+import Code from "../components/code"
 
 export default function content() {
     return (
@@ -55,21 +56,19 @@ export default function content() {
                 </div>
             </HeaderPipe>
 
-            <Spacer/>
-
             <Element>
                 <span>
                     There are two keys to the left and right of the spacebar.
                     They are called the "lower" and "raise" keys (respectively), and, while depressed, toggle different layers.
-                    For example, to type a <code>-</code> (dash), my keyboard uses <code>raise</code> + <code>j</code>.
+                    For example, to type a <Code>-</Code> (dash), my keyboard uses <Code>MO 2</Code> + <Code>j</Code>.
                 </span>
             </Element>
 
             <Element>
                 <span>
                     There are 3 main layers on my keyboard.
-                    The <code>raise</code> and <code>lower</code> keys have been replaced with <code>MO n</code> keys, which stands for "momentary on".
-                    The number <code>n</code> refers to which layer to turn on while the key is depressed.
+                    The <Code>raise</Code> and <Code>lower</Code> keys have been replaced with <Code>MO n</Code> keys, which stands for "momentary on".
+                    The number <Code>n</Code> refers to which layer to turn on while the key is depressed.
                 </span>
             </Element>
 
@@ -103,14 +102,14 @@ export default function content() {
             <Element>
                 <span>
                     The biggest advantage is that all the symbols are super close to the home row, meaning I can press them without moving my hands too much (if at all).
-                    This is in stark contrast to a staggered keyboard, where I developed the bad habit of shifting my hand and using my middle finger to press characters like <code>=</code>.
+                    This is in stark contrast to a staggered keyboard, where I developed the bad habit of shifting my hand and using my middle finger to press characters like <Code>=</Code>.
                 </span>
             </Element>
 
             <Element>
                 <span>
-                    (The button three spaces to the left of <code>prtsc</code> reading <code>TO 5</code> means "toggle on layer 5".
-                    Unlike <code>MO</code>, <code>TO</code> will turn the layer on until another layer is turned on, even if the key is released.)
+                    (The button three spaces to the left of <Code>prtsc</Code> reading <Code>TO 5</Code> means "toggle on layer 5".
+                    Unlike <Code>MO</Code>, <Code>TO</Code> will turn the layer on until another layer is turned on, even if the key is released.)
                 </span>
             </Element>
 
@@ -121,8 +120,6 @@ export default function content() {
                     Can you use it for gaming?
                 </div>
             </HeaderPipe>
-
-            <Spacer/>
 
             <Element>
                 <span>
@@ -148,8 +145,6 @@ export default function content() {
                     Parts
                 </div>
             </HeaderPipe>
-
-            <Spacer/>
 
             <Element>
                 <ul>

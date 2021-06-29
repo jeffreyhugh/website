@@ -8,7 +8,7 @@
     padding: 0.35rem;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
     .wrapper {
         justify-content: center;
     }
@@ -46,14 +46,20 @@
     background-attachment: fixed;
 }
 
+.containerShadowWrapper:hover .container {
+    margin: 0.2rem;
+    padding: 1rem;
+    border-radius: 7px;
+}
+
 .containerShadow {
     grid-column-start: 1;
     grid-column-end: 1;
     grid-row-start: 1;
     grid-row-end: 1;
     display: flex;
-    background-color: var(--textColor);
-    background-image: linear-gradient(to bottom, var(--textColor), var(--textColor));
+    background-color: var(--altBackground);
+    background-image: linear-gradient(to bottom, var(--altBackground), var(--altBackground));
     border-radius: 10px;
 }
 
@@ -67,10 +73,10 @@
     align-items: center;
     font-size: 1.5rem;
     background-color: var(--background);
-    margin: 0.2rem;
-    border-radius: 5px;
+    margin: 0.1rem;
+    border-radius: 10px;
     flex-direction: column;
-    padding: 1rem;
+    padding: 1.1rem;
     box-sizing: border-box;
 }
 

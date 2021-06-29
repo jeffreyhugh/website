@@ -4,6 +4,7 @@ import HeaderPipe from "../components/headerPipe";
 import Container from "../components/container";
 import Highlight from "react-highlight";
 import textStyles from "../styles/text.module.css";
+import Code from "../components/code";
 
 export default function content() {
     return (
@@ -23,22 +24,42 @@ export default function content() {
 
             <Spacer/>
 
+            <HeaderPipe>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={0}>
+                    Numbers are only 53 bits
+                </div>
+            </HeaderPipe>
+
+            <Element>
+                <span>
+                    If you want to use a 64-bit integer, go fuck yourself.
+                    Alternatively, store it in a string.
+                </span>
+            </Element>
+
+            <Element>
+                <span>
+                    <a href={"https://stackoverflow.com/a/38251272/7959316"}>StackOverflow</a>
+                </span>
+            </Element>
+
+            <Spacer/>
 
             <HeaderPipe>
-                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={1}>
                     There are too many ways to define a function
                 </div>
             </HeaderPipe>
 
             <Element>
                 <span>
-                    Is the normal <code>int add(int x, int y)</code> too boring?
+                    Is the normal <Code>int add(int x, int y)</Code> too boring?
                     Lucky for you, JS has a plethora of ways to define a function and they all have the same outcome.
                 </span>
             </Element>
 
             <Element>
-                <Highlight language={'js'}>{`function add(x, y) {
+                <Highlight className={'js'}>{`function add(x, y) {
     return (x + y)
 }
 
@@ -58,8 +79,8 @@ const add = (x, y) => (x + y)`}
 
             <HeaderPipe>
                 <Container>
-                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                        Abstract vs Strict Equality Comparison
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={2}>
+                        Abstract vs strict equality comparison
                     </div>
                     <div className={`${textStyles.small} ${textStyles.faint}`}>
                         (or, for us commonfolk, double equals vs triple equals)
@@ -71,14 +92,14 @@ const add = (x, y) => (x + y)`}
                 <span>
                     This isn't as bad as some of the other stuff, but it can lead to some really weird behavior.
                     Since JS is loosely typed, the double-equals operator tries normalize types before comparing.
-                    This means expressions like <code>10 == '10'</code> are truthy, even though <code>int</code> and <code>string</code> should not be directly comparable, let alone equal.
+                    This means expressions like <Code>10 == '10'</Code> are truthy, even though <Code>int</Code> and <Code>string</Code> should not be directly comparable, let alone equal.
                 </span>
             </Element>
 
             <Element>
                 <span>
-                    You can exploit the desire to normalize type by making your own <code>.toValue()</code> method.
-                    This allows even stranger behavior like <code>a == 1 && a == 2 && a == 3</code> to be truthy.
+                    You can exploit the desire to normalize type by making your own <Code>.toValue()</Code> method.
+                    This allows even stranger behavior like <Code>a == 1 && a == 2 && a == 3</Code> to be truthy.
                 </span>
             </Element>
 
@@ -91,24 +112,132 @@ const add = (x, y) => (x + y)`}
             <Spacer/>
 
             <HeaderPipe>
-                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
-                    Numbers are only 53 bits
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={3}>
+                    Mismatched type concatenation
                 </div>
             </HeaderPipe>
 
             <Element>
                 <span>
-                    If you want to use a 64-bit integer, go fuck yourself.
-                    Alternatively, store it in a string.
+                    Again, this has to do with JS's desire to normalize types. Consider the following pseudo-code.
                 </span>
             </Element>
 
             <Element>
+                <pre>{`a := 2
+b := "3.5"
+c := a + b
+print(c)`}
+                </pre>
+            </Element>
+
+            <Element>
                 <span>
-                    <a href={"https://stackoverflow.com/a/38251272/7959316"}>StackOverflow</a>
+                    The astute among you may have noticed <Code>a</Code> and <Code>b</Code> are different types. Different languages handle this differently.
                 </span>
             </Element>
 
+            <Element>
+                <Highlight className={"c"}>{`// C
+...
+int main() {
+    int a = 2;
+    char b[] = "3.5";
+    int c = a + b;
+    printf("%d\\n", c);
+}`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <Highlight className={"shell"}>{`$ gcc -g -Wall test.c -o test
+test.c: In function 'main':
+test.c:5:13: warning: initialization makes integer from pointer without a cast [-Wint-conversion]
+    int c = a + b;
+            ^
+$ ./test
+-1107732586`}
+                </Highlight>
+            </Element>
+
+            <Spacer/>
+
+            <Element>
+                <Highlight className={"go"}>{`// Go
+...
+func main() {
+    a := 2
+    b := "3.5"
+    c := a + b
+    fmt.Println(c)
+}`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <Highlight className={"shell"}>{`$ go run main.go
+./main.go:5:9: invalid operation: a + b (mismatched types int and string)
+`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <span>
+                    I like these languages because they do <strong>exactly</strong> what I told them to do.
+                    Go just lets me know that I messed up.
+                    C assumes I didn't mess up and adds an <Code>int</Code> to the pointer that <Code>b</Code> stores.
+                    Compare that to JS.
+                </span>
+            </Element>
+
+            <Element>
+                <Highlight className={"js"}>{`// JS
+a = 2
+b = "3.5"
+c = a + b
+console.log(c)`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <Highlight className={"shell"}>{`$ node app.js
+"23.5"
+`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <span>
+                    JS "cleverly" converted the <Code>int</Code> into a <Code>string</Code>, then <strong>concatenated</strong> the two.
+                    In this particular instance, some may argue it's a "feature".
+                    It doesn't stop there.
+                </span>
+            </Element>
+
+            <Element>
+                <Highlight className={"js"}>{`// JS
+a = 2
+b = {
+  value: "3.5",
+  hello: "world"
+}
+c = a + b
+console.log(c)`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <Highlight className={"shell"}>{`$ node app.js
+"2[object Object]"
+`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <span>
+                    Absolutely useless.
+                </span>
+            </Element>
         </>
     )
 }
