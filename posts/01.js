@@ -238,6 +238,81 @@ console.log(c)`}
                     Absolutely useless.
                 </span>
             </Element>
+
+            <Spacer/>
+
+            <HeaderPipe>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={4}>
+                    Made-up operators
+                </div>
+            </HeaderPipe>
+
+            <Element>
+                <span>
+                    Examples include the <a
+                    href={"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator"}>nullish coalescing operator</a> (<Code>??</Code>) and the <a
+                    href={"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining"}>optional chaining operator</a> (<Code>?.</Code>).
+                    These two operators (and I'm sure there are more) are shorthand for edge cases that save (at <strong>most</strong>) a few lines of code.
+                </span>
+            </Element>
+
+            <Element>
+                <span>
+                    The following example illustrates how the nullish coalescing operator can be replaced with a ternary operator for just 37 more characters (and 100% more readability).
+                </span>
+            </Element>
+
+            <Element>
+                <Highlight language={"js"}>{`// nullish coalescing operator
+const res = null
+const foo = res ?? 'default string'
+console.log(foo)
+// output: "default string"
+
+// ternary operator
+const res = null
+const foo = (res === null || res === undefined) ? 'default string' : res
+console.log(foo)
+// output: "default string"
+`}
+                </Highlight>
+            </Element>
+
+            <Element>
+                <span>
+                    On a side note, I asked a coworker who's been using computers since before the Internet if he knew what a nullish coalescing operator was.
+                    His immediate response: "that must be a JS thing."
+                </span>
+            </Element>
+
+            <Spacer/>
+
+            <HeaderPipe>
+                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={5}>
+                    Esolang in disguise
+                </div>
+            </HeaderPipe>
+
+            <Element>
+                <span>
+                    <a href={"https://en.wikipedia.org/wiki/Esoteric_programming_language"}>Esoteric programming languages</a>, or esolangs for short, are languages that have basically no real-world use.
+                    Because of the aforementioned oddities with JS and type normalization, <Code>++[[]][+[]]+[+[]]</Code> returns <Code>"10"</Code>.
+                    Just like any other esolang (<a href={"https://en.wikipedia.org/wiki/Brainfuck"}>Brainfuck</a> comes to mind), given enough time, you can understand what it does.
+                    However, it's still behavior you wouldn't see in any other language.
+                </span>
+            </Element>
+
+            <Element>
+                <span>
+                    <a href={"https://stackoverflow.com/questions/7202157/why-does-return-the-string-10"}>StackOverflow</a>
+                </span>
+            </Element>
+
+            <Element>
+                <span>
+                    <a href={"https://stackoverflow.com/questions/17014770/why-and-how-does-evaluate-to-the-letter-i"}>Also StackOverflow</a>
+                </span>
+            </Element>
         </>
     )
 }

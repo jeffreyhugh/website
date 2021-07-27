@@ -2,6 +2,10 @@
     height: 1.3rem;
 }
 
+.halfSpacer {
+    height: 0.7rem;
+}
+
 .bigParent {
     display: flex;
     flex-grow: 1;
@@ -11,7 +15,8 @@
 .bigContainer {
     display: flex;
     justify-content: center;
-    width: min(95%, 1100px);
+    /*width: min(95%, 1100px);*/
+    width: 800px;
     flex-direction: column;
 }
 
