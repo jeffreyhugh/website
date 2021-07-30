@@ -11,10 +11,10 @@ export default function content() {
             <HeaderPipe>
                 <Container>
                     <div className={`${textStyles.xlarge}`}>
-                        Highest offer - $1,050
+                        Highest offer - $2,900
                     </div>
                     <div>
-                        on June 14, 2021
+                        on July 30, 2021 (with proof of funds)
                     </div>
                 </Container>
             </HeaderPipe>
