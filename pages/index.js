@@ -171,6 +171,7 @@ export default function Home({allPostsData, allLinks, allProjects, allTools}) {
                               content={"42k2t7nJ7osN2EL6fEP\nPAy3yR2s6zHSVmLE8vw\nVPz8BPGT1dtf3hk3MSz\naG7P4rvViJfSjaaSPwy\nq4r1jTmKcqkpHuargMc"}
                               key={1}/>
                     <CopyCard title={"BTC"} content={"bc1q0f33nagdzd\nj7l3kdtrrv46qg\n8pn0yzgwf07pj9"}/>
+                    <CopyCard title={"ETH"} content={"0x210b937aE5b3\nD0b8420bEb2103\n68d8323393F082"}/>
                 </CardWrapper>
 
             </BigContainer>
