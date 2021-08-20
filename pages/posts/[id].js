@@ -27,7 +27,7 @@ export default function Post({postData}) {
                 <Spacer/>
                 <HeaderPipe>
                     <Container>
-                        <div className={`${textStyles.xxxxlarge} ${textStyles.bold} ${textStyles.gradient}`}>
+                        <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
                             {postData.title}
                         </div>
                         <div className={`${textStyles.large}`}>

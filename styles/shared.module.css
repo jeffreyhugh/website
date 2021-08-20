@@ -15,8 +15,8 @@
 .bigContainer {
     display: flex;
     justify-content: center;
-    /*width: min(95%, 1100px);*/
-    width: 800px;
+    width: min(95%, 1100px);
+    /*width: 800px;*/
     flex-direction: column;
 }
 
