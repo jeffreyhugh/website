@@ -124,10 +124,14 @@ export default function Link() {
 
                 {links.map(link => (
                     <Element>
+                        <div style={{whiteSpace: 'nowrap'}}>
                         {link.status === 200 ?
-                            <><a href={`https://queue.bot/link/${link.slug}`}>{link.slug}</a>&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> :
+                            <><span className={`${textStyles.a}`} onClick={async e => {
+                                await navigator.clipboard.writeText(`https://queue.bot/link/${link.slug}`);
+                            }}>{link.slug}</span>&nbsp;(click to copy) &rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> :
                             <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
                         }
+                        </div>
                     </Element>
                 ))}
 

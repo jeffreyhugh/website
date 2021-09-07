@@ -8,6 +8,7 @@
 
 .small {
     font-size: 0.75rem;
+    line-height: 0.5rem;
 }
 
 .medium {
@@ -67,4 +68,14 @@
 
 .mono {
     font-family: OxygenMono, monospace;
+}
+
+.a {
+    text-decoration: none;
+    text-shadow: 0 0 0.5rem var(--textColor);
+}
+
+.a:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }

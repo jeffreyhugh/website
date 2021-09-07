@@ -171,9 +171,21 @@
     box-sizing: border-box;
     border: var(--altBackground);
     /* width: min(30rem, 95%); */
-    width: 100%;
+
 }
 
 .button:hover {
     cursor: pointer;
+}
+
+.smallButton {
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+    font-size: 1rem;
+    margin: 0.45rem;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem;
+    box-sizing: border-box;
+    border: var(--altBackground);
 }
