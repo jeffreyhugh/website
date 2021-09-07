@@ -30,6 +30,8 @@ export default function Link() {
         console.log(res.status)
 
         if (res.status === 200) {
+            event.target.slug.value = ""
+            event.target.destination.value = ""
             res.json().then(j => {
                 setLinks(existingLinks => [{
                     slug: j.slug,
@@ -129,7 +131,7 @@ export default function Link() {
                     <Element>
                         {link.status === 200 ? 
                             <><a href={`https://queue.bot/link/${link.slug}`}>{link.slug}</a>&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> : 
-                            <>{link.slug}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
+                            <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
                         }
                     </Element>
                 ))}

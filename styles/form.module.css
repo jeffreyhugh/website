@@ -154,3 +154,7 @@
     border: var(--altBackground);
     width: 30rem;
 }
+
+.button:hover {
+    cursor: pointer;
+}
