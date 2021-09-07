@@ -3,7 +3,7 @@
     margin: 0.35rem;
 }
 
-.textBoxShadowWrapper:hover .textBoxShadow {
+.textBoxLabel:hover .textBoxShadow {
     /*margin-bottom: 0;*/
     /*opacity: 0.6;*/
     background-color: var(--main);
@@ -11,19 +11,19 @@
     background-attachment: fixed;
 }
 
-.textBoxShadowWrapper:focus-within .textBoxShadow {
+.textBoxLabel:focus-within .textBoxShadow {
     background-color: var(--main);
     background-image: var(--gradient);
     background-attachment: fixed;
 }
 
-.textBoxShadowWrapper:hover .textBox {
+.textBoxLabel:hover .textBox {
     margin: 0.2rem;
     padding: 0.2rem 0.6rem;
     border-radius: 7px;
 }
 
-.textBoxShadowWrapper:focus-within .textBox {
+.textBoxLabel:focus-within .textBox {
     margin: 0.2rem;
     padding: 0.2rem 0.6rem;
     border-radius: 7px;
@@ -52,7 +52,7 @@
     padding: 0.3rem 0.7rem;
     box-sizing: border-box;
     border: var(--altBackground);
-    width: 30rem;
+    /* width: min(30rem, 95%); */
 }
 
 .textBox:focus {
@@ -70,7 +70,7 @@
     margin: 0.35rem;
 }
 
-.checkBoxShadowWrapper:hover .checkBoxShadow {
+.textBoxLabel:hover .checkBoxShadow {
     /*margin-bottom: 0;*/
     /*opacity: 0.6;*/
     background-color: var(--main);
@@ -78,19 +78,19 @@
     background-attachment: fixed;
 }
 
-.checkBoxShadowWrapper:focus-within .checkBoxShadow {
+.textBoxLabel:focus-within .checkBoxShadow {
     background-color: var(--main);
     background-image: var(--gradient);
     background-attachment: fixed;
 }
 
-.checkBoxShadowWrapper:hover .checkBox {
+.textBoxLabel:hover .checkBox {
     margin: 0.2rem;
     padding: 0.6rem 0.6rem;
     border-radius: 7px;
 }
 
-.checkBoxShadowWrapper:focus-within .checkBox {
+.textBoxLabel:focus-within .checkBox {
     margin: 0.2rem;
     padding: 0.6rem 0.6rem;
     border-radius: 7px;
@@ -152,7 +152,7 @@
     padding: 0.3rem 0.7rem;
     box-sizing: border-box;
     border: var(--altBackground);
-    width: 30rem;
+    /* width: min(30rem, 95%); */
 }
 
 .button:hover {

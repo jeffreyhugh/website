@@ -72,71 +72,64 @@ export default function Link() {
                 </HeaderPipe>
 
                 <Spacer />
-                <form onSubmit={handleSubmit}>
-                    <Element>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="slug">Slug</label>
-                    </Element>
-                    <Element>
+                <Element>
+                    <form onSubmit={handleSubmit}>
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="slug">Slug
                         <div className={`${formStyles.textBoxShadowWrapper}`}>
                             <div className={`${formStyles.textBoxShadow}`} />
                             <input className={`${formStyles.textBox}`} id="slug" type="text" placeholder="(Leave blank for random)" />
                         </div>
-                    </Element>
+                        </label>
 
-                    <HalfSpacer />
+                        <HalfSpacer />
 
-                    <Element>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="destination">Destination</label>
-                    </Element>
-                    <Element>
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="destination">Destination
                         <div className={`${formStyles.textBoxShadowWrapper}`}>
                             <div className={`${formStyles.textBoxShadow}`} />
                             <input className={`${formStyles.textBox}`} id="destination" type="text" placeholder="https://example.com" required />
                         </div>
-                    </Element>
+                        </label>
 
-                    <HalfSpacer />
+                        <HalfSpacer />
 
-                    <Element>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="permanent">Permanent Redirect</label>
-                        <div className={`${formStyles.checkBoxShadowWrapper}`}>
-                            <div className={`${formStyles.checkBoxShadow}`} />
-                            <input className={`${formStyles.defaultCheckBox}`} id="permanent" type="checkbox" />
-                            <span className={`${formStyles.checkBox}`} />
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="permanent">Permanent Redirect
+                        <div style={{width: "2rem"}}>
+                            <div className={`${formStyles.checkBoxShadowWrapper}`}>
+                                <div className={`${formStyles.checkBoxShadow}`} />
+                                <input className={`${formStyles.defaultCheckBox}`} id="permanent" type="checkbox" />
+                                <span className={`${formStyles.checkBox}`} />
+                            </div>
                         </div>
-                    </Element>
+                        </label>
 
-                    <HalfSpacer />
+                        <HalfSpacer />
 
-                    <Element>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">Password</label>
-                    </Element>
-                    <Element>
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">Password
                         <div className={`${formStyles.textBoxShadowWrapper}`}>
                             <div className={`${formStyles.textBoxShadow}`} />
                             <input className={`${formStyles.textBox}`} id="password" type="password" placeholder="••••••••" required />
                         </div>
-                    </Element>
-
-                    <Element>
+                        </label>
+                        
                         <button type="submit" className={`${formStyles.button}`}>
                             <span className={`${textStyles.bold}`}>Submit</span>
                         </button>
-                    </Element>
-                </form>
+                        
+                    </form>
+                </Element>
 
                 <Spacer />
 
                 {links.map(link => (
                     <Element>
-                        {link.status === 200 ? 
-                            <><a href={`https://queue.bot/link/${link.slug}`}>{link.slug}</a>&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> : 
+                        {link.status === 200 ?
+                            <><a href={`https://queue.bot/link/${link.slug}`}>{link.slug}</a>&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> :
                             <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
                         }
                     </Element>
                 ))}
-                
-                <Spacer/>
+
+                <Spacer />
             </BigContainer>
         </Meta>
     )
