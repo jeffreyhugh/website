@@ -1,0 +1,156 @@
+.textBoxShadowWrapper {
+    display: grid;
+    margin: 0.35rem;
+}
+
+.textBoxShadowWrapper:hover .textBoxShadow {
+    /*margin-bottom: 0;*/
+    /*opacity: 0.6;*/
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.textBoxShadowWrapper:focus-within .textBoxShadow {
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.textBoxShadowWrapper:hover .textBox {
+    margin: 0.2rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 7px;
+}
+
+.textBoxShadowWrapper:focus-within .textBox {
+    margin: 0.2rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 7px;
+}
+
+.textBoxShadow {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    background-color: var(--altBackground);
+    background-image: linear-gradient(to bottom, var(--altBackground), var(--altBackground));
+    border-radius: 10px;
+}
+
+.textBox {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: var(--background);
+    font-size: 1rem;
+    margin: 0.1rem;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem;
+    box-sizing: border-box;
+    border: var(--altBackground);
+    width: 30rem;
+}
+
+.textBox:focus {
+    outline: none;
+}
+
+.textBoxLabel {
+    padding: 0rem 1rem;
+}
+
+
+
+.checkBoxShadowWrapper {
+    display: grid;
+    margin: 0.35rem;
+}
+
+.checkBoxShadowWrapper:hover .checkBoxShadow {
+    /*margin-bottom: 0;*/
+    /*opacity: 0.6;*/
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.checkBoxShadowWrapper:focus-within .checkBoxShadow {
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.checkBoxShadowWrapper:hover .checkBox {
+    margin: 0.2rem;
+    padding: 0.6rem 0.6rem;
+    border-radius: 7px;
+}
+
+.checkBoxShadowWrapper:focus-within .checkBox {
+    margin: 0.2rem;
+    padding: 0.6rem 0.6rem;
+    border-radius: 7px;
+}
+
+.checkBoxShadow {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    display: flex;
+    background-color: var(--altBackground);
+    background-image: linear-gradient(to bottom, var(--altBackground), var(--altBackground));
+    border-radius: 10px;
+}
+
+.checkBox {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    background-color: var(--background);
+    height: 1rem;
+    width: 1rem;
+    margin: 0.1rem;
+    border-radius: 10px;
+    padding: 0.7rem;
+    box-sizing: border-box;
+    border: var(--altBackground);
+}
+
+.checkBox:focus {
+    outline: none;
+}
+
+.defaultCheckBox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 1.6rem;
+    width: 1.6rem;
+    padding: 1.3rem;
+}
+
+
+.defaultCheckBox:checked ~ .checkBox {
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+}
+
+.button {
+    background-color: var(--main);
+    background-image: var(--gradient);
+    background-attachment: fixed;
+    font-size: 1rem;
+    margin: 0.45rem;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem;
+    box-sizing: border-box;
+    border: var(--altBackground);
+    width: 30rem;
+}
