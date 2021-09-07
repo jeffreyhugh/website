@@ -1,6 +1,18 @@
+.parent {
+    width: 50%;
+}
+
+@media screen and (max-width: 900px) {
+    .parent {
+        width: 100%;
+    }
+}
+
 .textBoxShadowWrapper {
     display: grid;
     margin: 0.35rem;
+    /* width: 100%; */
+    grid-template-columns: 100%;
 }
 
 .textBoxLabel:hover .textBoxShadow {
@@ -52,7 +64,6 @@
     padding: 0.3rem 0.7rem;
     box-sizing: border-box;
     border: var(--altBackground);
-    /* width: min(30rem, 95%); */
 }
 
 .textBox:focus {
@@ -61,6 +72,7 @@
 
 .textBoxLabel {
     padding: 0rem 1rem;
+
 }
 
 
@@ -142,7 +154,13 @@
     background-attachment: fixed;
 }
 
+.buttonWrapper {
+    width: 100%;
+    display: flex;
+}
+
 .button {
+    flex-grow: 1;
     background-color: var(--main);
     background-image: var(--gradient);
     background-attachment: fixed;
@@ -153,6 +171,7 @@
     box-sizing: border-box;
     border: var(--altBackground);
     /* width: min(30rem, 95%); */
+    width: 100%;
 }
 
 .button:hover {

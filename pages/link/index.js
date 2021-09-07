@@ -73,48 +73,50 @@ export default function Link() {
 
                 <Spacer />
                 <Element>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} className={formStyles.parent}>
                         <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="slug">Slug
-                        <div className={`${formStyles.textBoxShadowWrapper}`}>
-                            <div className={`${formStyles.textBoxShadow}`} />
-                            <input className={`${formStyles.textBox}`} id="slug" type="text" placeholder="(Leave blank for random)" />
-                        </div>
+                            <div className={`${formStyles.textBoxShadowWrapper}`}>
+                                <div className={`${formStyles.textBoxShadow}`} />
+                                <input className={`${formStyles.textBox}`} id="slug" type="text" placeholder="(Leave blank for random)" />
+                            </div>
                         </label>
 
                         <HalfSpacer />
 
                         <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="destination">Destination
-                        <div className={`${formStyles.textBoxShadowWrapper}`}>
-                            <div className={`${formStyles.textBoxShadow}`} />
-                            <input className={`${formStyles.textBox}`} id="destination" type="text" placeholder="https://example.com" required />
-                        </div>
+                            <div className={`${formStyles.textBoxShadowWrapper}`}>
+                                <div className={`${formStyles.textBoxShadow}`} />
+                                <input className={`${formStyles.textBox}`} id="destination" type="text" placeholder="https://example.com" required />
+                            </div>
                         </label>
 
                         <HalfSpacer />
 
                         <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="permanent">Permanent Redirect
-                        <div style={{width: "2rem"}}>
-                            <div className={`${formStyles.checkBoxShadowWrapper}`}>
-                                <div className={`${formStyles.checkBoxShadow}`} />
-                                <input className={`${formStyles.defaultCheckBox}`} id="permanent" type="checkbox" />
-                                <span className={`${formStyles.checkBox}`} />
+                            <div style={{ width: "2rem" }}>
+                                <div className={`${formStyles.checkBoxShadowWrapper}`}>
+                                    <div className={`${formStyles.checkBoxShadow}`} />
+                                    <input className={`${formStyles.defaultCheckBox}`} id="permanent" type="checkbox" />
+                                    <span className={`${formStyles.checkBox}`} />
+                                </div>
                             </div>
-                        </div>
                         </label>
 
                         <HalfSpacer />
 
                         <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">Password
-                        <div className={`${formStyles.textBoxShadowWrapper}`}>
-                            <div className={`${formStyles.textBoxShadow}`} />
-                            <input className={`${formStyles.textBox}`} id="password" type="password" placeholder="••••••••" required />
-                        </div>
+                            <div className={`${formStyles.textBoxShadowWrapper}`}>
+                                <div className={`${formStyles.textBoxShadow}`} />
+                                <input className={`${formStyles.textBox}`} id="password" type="password" placeholder="••••••••" required />
+                            </div>
                         </label>
-                        
-                        <button type="submit" className={`${formStyles.button}`}>
-                            <span className={`${textStyles.bold}`}>Submit</span>
-                        </button>
-                        
+
+                        <div className={`${formStyles.buttonWrapper}`}>
+                            <button type="submit" className={`${formStyles.button}`}>
+                                <span className={`${textStyles.bold}`}>Submit</span>
+                            </button>
+                        </div>
+
                     </form>
                 </Element>
 
