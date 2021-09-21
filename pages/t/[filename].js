@@ -1,11 +1,16 @@
-import {useRouter} from "next/router";
+import { useRouter } from "next/dist/client/router"
 
-export default function T() {
-    const router = useRouter()
-    const {filename} = router.query
-    if (filename) {
-        window.location = `https://storage.queue.bot/t/${filename}`
+export async function getServerSideProps(ctx) {
+    return {
+        redirect: {
+            destination: `https://storage.queue.bot/t/${filename}`,
+            permanent: false,
+        }
     }
+}
 
+const pIndex = () => {
     return null
 }
+
+export default pIndex
