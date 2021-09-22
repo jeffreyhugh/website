@@ -284,35 +284,6 @@ console.log(foo)
                     His immediate response: "that must be a JS thing."
                 </span>
             </Element>
-
-            <Spacer/>
-
-            <HeaderPipe>
-                <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={5}>
-                    Esolang in disguise
-                </div>
-            </HeaderPipe>
-
-            <Element>
-                <span>
-                    <a href={"https://en.wikipedia.org/wiki/Esoteric_programming_language"}>Esoteric programming languages</a>, or esolangs for short, are languages that have basically no real-world use.
-                    Because of the aforementioned oddities with JS and type normalization, <Code>++[[]][+[]]+[+[]]</Code> returns <Code>"10"</Code>.
-                    Just like any other esolang (<a href={"https://en.wikipedia.org/wiki/Brainfuck"}>Brainfuck</a> comes to mind), given enough time, you can understand what it does.
-                    However, it's still behavior you wouldn't see in any other language.
-                </span>
-            </Element>
-
-            <Element>
-                <span>
-                    <a href={"https://stackoverflow.com/questions/7202157/why-does-return-the-string-10"}>StackOverflow</a>
-                </span>
-            </Element>
-
-            <Element>
-                <span>
-                    <a href={"https://stackoverflow.com/questions/17014770/why-and-how-does-evaluate-to-the-letter-i"}>Also StackOverflow</a>
-                </span>
-            </Element>
         </>
     )
 }
