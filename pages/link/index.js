@@ -8,6 +8,7 @@ import HeaderPipe from "../../components/headerPipe";
 import textStyles from "../../styles/text.module.css";
 import Container from "../../components/container";
 import formStyles from "../../styles/form.module.css"
+import BackHome from "../../components/backHome";
 import { useState } from "react";
 
 
@@ -140,6 +141,7 @@ export default function Link() {
                 ))}
 
                 <Spacer />
+                <BackHome />
             </BigContainer>
         </Meta>
     )
