@@ -15,6 +15,8 @@ export default function Link() {
     const [links, setLinks] = useState([])
     async function handleSubmit(event) {
         event.preventDefault()
+        const ids = ["slug", "destination", "permanent", "password", "submit"]
+        ids.forEach(id => document.getElementById(id).disabled = true)
         const res = await fetch("https://api.queue.bot/link/v1/add", {
             method: 'POST',
             headers: {
@@ -46,6 +48,8 @@ export default function Link() {
                 status: res.status,
             }, ...existingLinks])
         }
+
+        ids.forEach(id => document.getElementById(id).disabled = false)
     }
 
     return (
@@ -112,7 +116,7 @@ export default function Link() {
                         </label>
 
                         <div className={`${formStyles.buttonWrapper}`}>
-                            <button type="submit" className={`${formStyles.button}`}>
+                            <button type="submit" id="submit" className={`${formStyles.button}`}>
                                 <span className={`${textStyles.bold}`}>Submit</span>
                             </button>
                         </div>

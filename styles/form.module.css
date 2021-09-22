@@ -83,6 +83,10 @@
 
 }
 
+.textBox:disabled {
+    color: gray;
+}
+
 
 
 .checkBoxShadowWrapper {

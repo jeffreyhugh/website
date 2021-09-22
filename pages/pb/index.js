@@ -14,20 +14,22 @@ export default function PB() {
     const [links, setLinks] = useState([])
     async function handleSubmit(event) {
         event.preventDefault()
+        const ids = ["pbContent", "password", "submit"]
+        ids.forEach(id => document.getElementById(id).disabled = true)
         const res = await fetch("https://api.queue.bot/pb/v1/add", {
             method: 'POST',
             headers: {
                 Authorization: "Basic " + btoa("queuebot:" + event.target.password.value),
             },
             body: JSON.stringify({
-                body: event.target.body.value,
+                body: event.target.pbContent.value,
             })
         })
 
         console.log(res.status)
         
         if (res.status === 200) {
-            event.target.body.value = ""
+            event.target.pbContent.value = ""
             res.json().then(j => {
                 setLinks(existingLinks => [{
                     slug: j.slug,
@@ -36,10 +38,12 @@ export default function PB() {
             })
         } else {
             setLinks(existingLinks => [{
-                slug: j.slug,
+                slug: "",
                 status: res.status,
             }, ...existingLinks])
         }
+
+        ids.forEach(id => document.getElementById(id).disabled = false)
     }
 
     return (
@@ -67,12 +71,12 @@ export default function PB() {
 
                 <Spacer />
                 <Element>
-                    <form onSubmit={handleSubmit} className={formStyles.bigParent}>
+                    <form onSubmit={handleSubmit} className={formStyles.bigParent} id={"_form"}>
 
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="body">Content
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="pbContent">Content
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
-                                <textarea className={`${formStyles.textBox} ${textStyles.mono} ${formStyles.textArea}`} id="body" rows={5} placeholder={"print(\"hello, world\")"} required />
+                                <textarea className={`${formStyles.textBox} ${textStyles.mono} ${formStyles.textArea}`} id="pbContent" rows={7} placeholder={"print(\"hello, world\")"} required />
                             </div>
                         </label>
 
@@ -86,7 +90,7 @@ export default function PB() {
                         </label>
 
                         <div className={`${formStyles.buttonWrapper}`}>
-                            <button type="submit" className={`${formStyles.button}`}>
+                            <button type="submit" id="submit" className={`${formStyles.button}`}>
                                 <span className={`${textStyles.bold}`}>Submit</span>
                             </button>
                         </div>
@@ -100,9 +104,14 @@ export default function PB() {
                     <Element>
                         <div style={{whiteSpace: 'nowrap'}}>
                         {link.status === 200 ?
-                            <><span className={`${textStyles.a}`} onClick={async e => {
-                                await navigator.clipboard.writeText(`https://storage.queue.bot/pb/${link.slug}.txt`);
-                            }}>{link.slug}</span>&nbsp;(click to copy) &rarr;&nbsp;({link.status})</> :
+                            <>
+                                <span className={`${textStyles.a}`} onClick={async e => {
+                                    await navigator.clipboard.writeText(`https://storage.queue.bot/pb/${link.slug}.txt`);
+                                }}>
+                                    {link.slug}
+                                </span>
+                                    &nbsp;(click to copy) &rarr;&nbsp;({link.status})
+                            </> :
                             <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;({link.status})</>
                         }
                         </div>
