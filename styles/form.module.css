@@ -2,8 +2,16 @@
     width: 50%;
 }
 
+.bigParent {
+    width: 80%
+}
+
 @media screen and (max-width: 900px) {
     .parent {
+        width: 100%;
+    }
+
+    .bigParent {
         width: 100%;
     }
 }
@@ -188,4 +196,8 @@
     padding: 0.3rem 0.7rem;
     box-sizing: border-box;
     border: var(--altBackground);
+}
+
+.textArea {
+    resize: vertical;
 }

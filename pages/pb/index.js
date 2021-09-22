@@ -10,39 +10,33 @@ import Container from "../../components/container";
 import formStyles from "../../styles/form.module.css"
 import { useState } from "react";
 
-
-export default function Link() {
+export default function PB() {
     const [links, setLinks] = useState([])
     async function handleSubmit(event) {
         event.preventDefault()
-        const res = await fetch("https://api.queue.bot/link/v1/add", {
+        const res = await fetch("https://api.queue.bot/pb/v1/add", {
             method: 'POST',
             headers: {
                 Authorization: "Basic " + btoa("queuebot:" + event.target.password.value),
             },
             body: JSON.stringify({
-                slug: event.target.slug.value,
-                destination: event.target.destination.value,
-                permanent: event.target.permanent.value,
+                body: event.target.body.value,
             })
         })
 
         console.log(res.status)
-
+        
         if (res.status === 200) {
-            event.target.slug.value = ""
-            event.target.destination.value = ""
+            event.target.body.value = ""
             res.json().then(j => {
                 setLinks(existingLinks => [{
                     slug: j.slug,
-                    destination: j.destination,
                     status: res.status,
                 }, ...existingLinks])
             })
         } else {
             setLinks(existingLinks => [{
-                slug: event.target.slug.value,
-                destination: event.target.destination.value,
+                slug: j.slug,
                 status: res.status,
             }, ...existingLinks])
         }
@@ -51,7 +45,7 @@ export default function Link() {
     return (
         <Meta>
             <Head>
-                <title>{"QueueBot - Link"}</title>
+                <title>{"QueueBot - Pastebin"}</title>
                 <meta name="og:title" content={"QueueBot"} />
                 <meta name="og:description" content={"Examine the consequences"} />
                 <meta name="og:type" content={"website"} />
@@ -63,7 +57,7 @@ export default function Link() {
                 <HeaderPipe>
                     <Container>
                         <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
-                            Short Links
+                            Pastebin
                         </div>
                         <div className={`${textStyles.large}`}>
                             
@@ -73,32 +67,12 @@ export default function Link() {
 
                 <Spacer />
                 <Element>
-                    <form onSubmit={handleSubmit} className={formStyles.parent}>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="slug">Slug
+                    <form onSubmit={handleSubmit} className={formStyles.bigParent}>
+
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="body">Content
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
-                                <input className={`${formStyles.textBox}`} id="slug" type="text" placeholder="(Leave blank for random)" />
-                            </div>
-                        </label>
-
-                        <HalfSpacer />
-
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="destination">Destination
-                            <div className={`${formStyles.textBoxShadowWrapper}`}>
-                                <div className={`${formStyles.textBoxShadow}`} />
-                                <input className={`${formStyles.textBox}`} id="destination" type="text" placeholder="https://example.com" required />
-                            </div>
-                        </label>
-
-                        <HalfSpacer />
-
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="permanent">Permanent Redirect
-                            <div style={{ width: "2rem" }}>
-                                <div className={`${formStyles.checkBoxShadowWrapper}`}>
-                                    <div className={`${formStyles.checkBoxShadow}`} />
-                                    <input className={`${formStyles.defaultCheckBox}`} id="permanent" type="checkbox" />
-                                    <span className={`${formStyles.checkBox}`} />
-                                </div>
+                                <textarea className={`${formStyles.textBox} ${textStyles.mono} ${formStyles.textArea}`} id="body" rows={5} placeholder={"print(\"hello, world\")"} required />
                             </div>
                         </label>
 
@@ -127,9 +101,9 @@ export default function Link() {
                         <div style={{whiteSpace: 'nowrap'}}>
                         {link.status === 200 ?
                             <><span className={`${textStyles.a}`} onClick={async e => {
-                                await navigator.clipboard.writeText(`https://queue.bot/link/${link.slug}`);
-                            }}>{link.slug}</span>&nbsp;(click to copy) &rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> :
-                            <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
+                                await navigator.clipboard.writeText(`https://storage.queue.bot/pb/${link.slug}.txt`);
+                            }}>{link.slug}</span>&nbsp;(click to copy) &rarr;&nbsp;({link.status})</> :
+                            <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;({link.status})</>
                         }
                         </div>
                     </Element>
