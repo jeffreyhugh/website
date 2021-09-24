@@ -28,14 +28,14 @@
     --brightness: 70%;
 
     /* LIGHT */
-    /*--main: #ff0844;*/
-    /*--alt: #ffb199;*/
-    /*--textColor: black;*/
-    /*--backgroundColor: white;*/
-    /*--brightness: 100%;*/
+    /* --main: #ff0844;
+    --alt: #ffb199;
+    --textColor: black;
+    --backgroundColor: white;
+    --brightness: 100%; */
 
     --gradient: linear-gradient(169deg, var(--main), var(--via), var(--final));
-    /*--gradient: radial-gradient(var(--main), var(--via), var(--final));*/
+    /* --gradient: radial-gradient(var(--main), var(--via), var(--final)); */
 
 }
 

@@ -107,7 +107,7 @@ export default function PB() {
                         {link.status === 200 ?
                             <>
                                 <span className={`${textStyles.a}`} onClick={async e => {
-                                    await navigator.clipboard.writeText(`https://storage.queue.bot/pb/${link.slug}.txt`);
+                                    await navigator.clipboard.writeText(`https://queue.bot/pb/${link.slug}.txt`);
                                 }}>
                                     {link.slug}
                                 </span>
