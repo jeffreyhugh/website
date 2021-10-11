@@ -16,7 +16,7 @@ import Code from "../../components/code"
 import { ethers } from "ethers"
 import newChessNFT from "../../utils/NewChessNFT.json"
 
-const CONTRACT_ADDESS = '0x57673a617Bc5E02BaF43515E2ba9b57dF1b53355'
+const CONTRACT_ADDESS = '0x2e7e287b07e923D2591715e772015ab69295E1f0'
 
 export default function ChessNFT() {
 
