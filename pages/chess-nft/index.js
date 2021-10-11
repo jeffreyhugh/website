@@ -94,13 +94,22 @@ export default function ChessNFT() {
 
         const pgnData = pgnTextArea.value
 
-        const res = await fetch("https://api.queue.bot/nft/v1/chess/boardStateFromPGN", {
-            method: 'POST',
-            body: pgnData,
-        })
+        let res
+        try {
+            res = await fetch("https://api.queue.bot/nft/v1/chess/boardStateFromPGN", {
+                method: 'POST',
+                body: pgnData,
+            })
+        } catch (error) {
+            previewButton.innerHTML = previewButtonInnerHTML;
+            mintButton.innerHTML = mintButtonInnerHTML;
+            previewButton.disabled = false
+            mintButton.disabled = false
+            pgnTextArea.disabled = false
+            return
+        }
 
-        const boardState = await res.text()
-        console.log("received board state", boardState, "status", res.status)
+        console.log("received status", res.status)
 
         if (res.status !== 200) {
             previewButton.innerHTML = previewButtonInnerHTML;
@@ -110,6 +119,9 @@ export default function ChessNFT() {
             pgnTextArea.disabled = false
             return
         }
+
+        const boardState = await res.text()
+        console.log("board state", boardState)
 
         document.getElementById("previewSVG").innerHTML = `<svg height="500" width="500" style="background-color:white"><image height=500 width=500 xlink:href="https://api.queue.bot/nft/v1/chess/svgFromBoardState?boardState=${boardState}"/></svg>`
         previewButton.innerHTML = previewButtonInnerHTML;
@@ -123,63 +135,64 @@ export default function ChessNFT() {
 
     const askContractToMintNFT = async (window) => {
         console.log("minting token")
+        const { ethereum } = window;
+
+        if (!ethereum) {
+            return
+        }
+
+        const pgnTextArea = document.getElementById("pgn")
+        if (pgnTextArea.value === "") {
+            return
+        }
+        pgnTextArea.disabled = true
+        const previewButton = document.getElementById("previewButton")
+        previewButton.disabled = true
+        const previewButtonInnerHTML = previewButton.innerHTML
+        previewButton.innerHTML = '<i class="fa fa-spin fa-circle-o-notch" aria-hidden />'
+        const mintButton = document.getElementById("mintButton")
+        mintButton.disabled = true
+        const mintButtonInnerHTML = mintButton.innerHTML
+        mintButton.innerHTML = '<i class="fa fa-spin fa-circle-o-notch" aria-hidden />'
+
+        const provider = new ethers.providers.Web3Provider(ethereum);
+        const signer = provider.getSigner();
+        const connectedContract = new ethers.Contract(CONTRACT_ADDESS, newChessNFT.abi, signer)
+
+        console.log("requesting board state")
+        const pgnData = pgnTextArea.value
+
+        let res
         try {
-            const { ethereum } = window;
-
-            if (!ethereum) {
-                return
-            }
-
-            const pgnTextArea = document.getElementById("pgn")
-            if (pgnTextArea.value === "") {
-                return
-            }
-            pgnTextArea.disabled = true
-            const previewButton = document.getElementById("previewButton")
-            previewButton.disabled = true
-            const previewButtonInnerHTML = previewButton.innerHTML
-            previewButton.innerHTML = '<i class="fa fa-spin fa-circle-o-notch" aria-hidden />'
-            const mintButton = document.getElementById("mintButton")
-            mintButton.disabled = true
-            const mintButtonInnerHTML = mintButton.innerHTML
-            mintButton.innerHTML = '<i class="fa fa-spin fa-circle-o-notch" aria-hidden />'
-
-            const provider = new ethers.providers.Web3Provider(ethereum);
-            const signer = provider.getSigner();
-            const connectedContract = new ethers.Contract(CONTRACT_ADDESS, newChessNFT.abi, signer)
-
-            console.log("requesting board state")
-            const pgnData = pgnTextArea.value
-
-            const res = await fetch("https://api.queue.bot/nft/v1/chess/boardStateFromPGN", {
+            res = await fetch("https://api.queue.bot/nft/v1/chess/boardStateFromPGN", {
                 method: 'POST',
                 body: pgnData,
             })
-
-            const boardState = await res.text()
-            console.log("received board state", boardState, "status", res.status)
-
-            if (res.status !== 200) {
-                previewButton.innerHTML = previewButtonInnerHTML;
-                mintButton.innerHTML = mintButtonInnerHTML;
-                previewButton.disabled = false
-                mintButton.disabled = false
-                pgnTextArea.disabled = false
-                return
-            }
-
-            console.log("popping wallet to pay gas")
-            let nftTxn = await connectedContract.makeNewChessNFT(boardState)
-
-            console.log("mining...please wait")
-            await nftTxn.wait()
-            console.log(nftTxn)
-            console.log(`mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`)
+        } catch (error) {
             previewButton.innerHTML = previewButtonInnerHTML;
             mintButton.innerHTML = mintButtonInnerHTML;
             previewButton.disabled = false
             mintButton.disabled = false
             pgnTextArea.disabled = false
+            return
+        }
+        console.log("received status", res.status)
+
+        if (res.status !== 200) {
+            previewButton.innerHTML = previewButtonInnerHTML;
+            mintButton.innerHTML = mintButtonInnerHTML;
+            previewButton.disabled = false
+            mintButton.disabled = false
+            pgnTextArea.disabled = false
+            return
+        }
+
+        const boardState = await res.text()
+        console.log("board state", boardState)
+
+        console.log("popping wallet to pay gas")
+        try {
+            let nftTxn = await connectedContract.makeNewChessNFT(boardState)
         } catch (error) {
             previewButton.innerHTML = previewButtonInnerHTML;
             mintButton.innerHTML = mintButtonInnerHTML;
@@ -187,7 +200,18 @@ export default function ChessNFT() {
             mintButton.disabled = false
             pgnTextArea.disabled = false
             console.log(error)
+            return
         }
+
+        console.log("mining...please wait")
+        await nftTxn.wait()
+        console.log(nftTxn)
+        console.log(`mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`)
+        previewButton.innerHTML = previewButtonInnerHTML;
+        mintButton.innerHTML = mintButtonInnerHTML;
+        previewButton.disabled = false
+        mintButton.disabled = false
+        pgnTextArea.disabled = false
     }
 
     return (
