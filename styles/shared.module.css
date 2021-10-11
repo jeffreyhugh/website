@@ -32,6 +32,12 @@
     align-items: center;
 }
 
+.smallElement {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 @media screen and (max-width: 900px) {
     .element {
         flex-direction: column;
