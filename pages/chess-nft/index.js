@@ -191,8 +191,9 @@ export default function ChessNFT() {
         console.log("board state", boardState)
 
         console.log("popping wallet to pay gas")
+        let nftTxn
         try {
-            let nftTxn = await connectedContract.makeNewChessNFT(boardState)
+            nftTxn = await connectedContract.makeNewChessNFT(boardState)
         } catch (error) {
             previewButton.innerHTML = previewButtonInnerHTML;
             mintButton.innerHTML = mintButtonInnerHTML;
