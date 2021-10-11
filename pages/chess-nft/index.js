@@ -262,7 +262,7 @@ export default function ChessNFT() {
                             </span>
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
-                                <textarea className={`${formStyles.textBox} ${textStyles.mono} ${formStyles.textArea}`} id="pgn" rows={7} placeholder={"[White \"Alex Klein\"]\n[Black \"Sam Garre\"]\n\n1. e4 e5 2. c7 c5 3. ..."} required />
+                                <textarea className={`${formStyles.textBox} ${textStyles.mono} ${formStyles.textArea}`} id="pgn" rows={7} placeholder={"[White \"Alex Klein\"]\n[Black \"Sam Garre\"]\n\n1. e4 c7 2. ..."} required />
                             </div>
                         </label>
 
