@@ -287,7 +287,7 @@ export default function ChessNFT() {
 
                         <SmallElement>
                             <div className={`${formStyles.buttonWrapper}`} >
-                                <button type="button" id="openseaButton" className={`${formStyles.button}`} onClick={() => window.open(`https://testnets.opensea.io/collection/squarenft-bi8hwcytoe`)}>
+                                <button type="button" id="openseaButton" className={`${formStyles.button}`} onClick={() => window.open(`https://testnets.opensea.io/collection/chessnft-v3`)}>
                                     <span className={`${textStyles.bold}`}>
                                         <i className={`fa fa-cubes`} />&nbsp;
                                         View the full collection on OpenSea&nbsp;&nbsp;
