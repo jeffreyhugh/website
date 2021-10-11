@@ -25,13 +25,13 @@ export default function ChessNFT() {
     const [previewHidden, setPreviewHidden] = useState(true)
     const [newestTokenID, setNewestTokenID] = useState("")
 
-    useEffect(async () => {
+    useEffect(() => {
         const { ethereum } = window;
 
         if (ethereum) {
             setHasMetaMask(true)
         }
-    })
+    }, [])
 
     const installMetaMask = async (window) => {
         window.open("https://metamask.io", "_blank")
@@ -220,7 +220,7 @@ export default function ChessNFT() {
                             MetaMask is a free browser extension that allows this application to interact with the blockchain on your behalf
                             <br />
                             <br />
-                            <a href="https://metamask.io" target="_blank" >Click here to install MetaMask</a>
+                            <a href="https://metamask.io" target="_blank" rel="noreferrer" >Click here to install MetaMask</a>
                         </span>
                     </Element>
                 </div>
@@ -255,7 +255,7 @@ export default function ChessNFT() {
                         <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor={"pgn"}>PGN
                             <span className={`${textStyles.medium} ${textStyles.regular}`} style={{ paddingLeft: "0.5rem" }}>
                                 <Link href="/chess-nft/about#pgn">
-                                    <a target={"_blank"}>
+                                    <a target={"_blank"} rel={"noreferrer"}>
                                         (what's this?)
                                     </a>
                                 </Link>
