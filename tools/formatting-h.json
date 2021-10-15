@@ -1,7 +1,0 @@
-{
-  "name": "formatting.h",
-  "imageURL": "",
-  "description": "ANSI escape sequences to print to a terminal in color or formatted. Designed for use with printf()",
-  "order": 2,
-  "link": "https://github.com/qbxt/formatting.h"
-}

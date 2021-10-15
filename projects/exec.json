@@ -1,7 +1,0 @@
-{
-  "name": "exec",
-  "imageURL": "/images/logo-exec.png",
-  "description": "execute code straight from Discord. Supports Python, Go, C, Rust, Bash, and NodeJS.",
-  "order": 1,
-  "link": "/exec"
-}

@@ -1,7 +1,0 @@
-{
-  "name": "gologger",
-  "imageURL": "",
-  "description": "Intuitive wrapper for github/sirupsen/logrus, a fantastic thread-safe pluggable structured logging library for Go.",
-  "order": 0,
-  "link": "https://github.com/qbxt/gologger"
-}

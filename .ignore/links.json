@@ -1,0 +1,32 @@
+[
+    {
+        "order": 2,
+        "icon": "fa-discord",
+        "link": "https://discord.gg/gMEZvJC",
+        "alt": "discord"
+    },
+    {
+        "order": 1,
+        "icon": "fa-envelope",
+        "link": "mailto:q@queue.bot",
+        "alt": "email"
+    },
+    {
+        "order": 3,
+        "icon": "fa-github",
+        "link": "https://github.com/qbxt",
+        "alt": "github"
+    },
+    {
+        "order": 0,
+        "icon": "fa-matrix-org",
+        "link": "https://matrix.to/#/@q:matrix.queue.bot",
+        "alt": "matrix"
+    },
+    {
+        "order": 4,
+        "icon": "fa-steam",
+        "link": "https://steamcommunity.com/id/qbxt",
+        "alt": "steam"
+    }
+]

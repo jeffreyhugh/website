@@ -1,7 +1,0 @@
-{
-  "name": "Discord Webhook Helper",
-  "imageURL": "",
-  "description": "Go module to easily POST embeds and/or text to Discord webhooks. Older but still functional.",
-  "order": 1,
-  "link": "https://github.com/qbxt/discord-webhook-helper"
-}

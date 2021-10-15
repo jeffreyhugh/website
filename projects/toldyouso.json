@@ -1,7 +1,0 @@
-{
-    "name": "told-you.so",
-    "imageURL": "/images/logo-toldyouso.png",
-    "description": "A simple time capsule for messages so I could learn TailwindCSS and serverless functions.",
-    "order": 2,
-    "link": "https://told-you.so"
-  }

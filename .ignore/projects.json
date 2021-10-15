@@ -1,0 +1,30 @@
+[
+    {
+        "name": "exec",
+        "imageURL": "/images/logo-exec.png",
+        "description": "Execute Python, Go, C, Rust, Bash, and NodeJS code straight from Discord",
+        "order": 1,
+        "link": "/exec"
+    },
+    {
+        "name": "told-you.so",
+        "imageURL": "/images/logo-toldyouso.png",
+        "description": "A simple time capsule for messages so I could learn TailwindCSS and serverless functions",
+        "order": 2,
+        "link": "https://told-you.so"
+    },
+    {
+        "name": "Personal Website",
+        "imageURL": "",
+        "description": "This website is loosely based on the Next.js blog tutorial, but the blog posts are written in JS instead of MD for more consistent formatting",
+        "order": 0,
+        "link": "https://github.com/qbxt/website"
+    },
+    {
+        "name": "Chess NFT",
+        "imageURL": "/images/logo-chessnft.png",
+        "description": "Mint a chessboard on the Rinkeby testnet",
+        "order": "3",
+        "link": "/chess-nft"
+    }
+]
