@@ -24,6 +24,7 @@
     --altText: #ffffff;
     --background: black;
     --altBackground: #0f0f0f;
+    --faint: #888888;
 
     --brightness: 70%;
 
@@ -99,6 +100,10 @@ pre {
     padding: 0.5rem;
     color: var(--altText);
     white-space: pre-wrap;
+}
+
+label {
+    display: block;
 }
 
 .hljs {

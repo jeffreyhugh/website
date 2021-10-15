@@ -28,7 +28,7 @@ export default function PB() {
         })
 
         console.log(res.status)
-        
+
         if (res.status === 200) {
             event.target.pbContent.value = ""
             res.json().then(j => {
@@ -65,7 +65,7 @@ export default function PB() {
                             Pastebin
                         </div>
                         <div className={`${textStyles.large}`}>
-                            
+
                         </div>
                     </Container>
                 </HeaderPipe>
@@ -74,7 +74,8 @@ export default function PB() {
                 <Element>
                     <form onSubmit={handleSubmit} className={formStyles.bigParent} id={"_form"}>
 
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="pbContent">Content
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="pbContent">
+                            <span className={`${formStyles.textBoxLabelText}`}>Content</span>
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
                                 <textarea className={`${formStyles.textBox} ${textStyles.mono} ${formStyles.textArea}`} id="pbContent" rows={7} placeholder={"print(\"hello, world\")"} required />
@@ -83,7 +84,8 @@ export default function PB() {
 
                         <HalfSpacer />
 
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">Password
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">
+                            <span className={`${formStyles.textBoxLabelText}`}>Password</span>
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
                                 <input className={`${formStyles.textBox}`} id="password" type="password" placeholder="••••••••" required />
@@ -103,18 +105,18 @@ export default function PB() {
 
                 {links.map(link => (
                     <Element>
-                        <div style={{whiteSpace: 'nowrap'}}>
-                        {link.status === 200 ?
-                            <>
-                                <span className={`${textStyles.a}`} onClick={async e => {
-                                    await navigator.clipboard.writeText(`https://queue.bot/pb/${link.slug}.txt`);
-                                }}>
-                                    {link.slug}
-                                </span>
+                        <div style={{ whiteSpace: 'nowrap' }}>
+                            {link.status === 200 ?
+                                <>
+                                    <span className={`${textStyles.a}`} onClick={async e => {
+                                        await navigator.clipboard.writeText(`https://queue.bot/pb/${link.slug}.txt`);
+                                    }}>
+                                        {link.slug}
+                                    </span>
                                     &nbsp;(click to copy) &rarr;&nbsp;({link.status})
-                            </> :
-                            <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;({link.status})</>
-                        }
+                                </> :
+                                <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;({link.status})</>
+                            }
                         </div>
                     </Element>
                 ))}

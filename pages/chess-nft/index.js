@@ -277,7 +277,8 @@ export default function ChessNFT() {
                     <HalfSpacer />
 
                     <form onSubmit={async e => e.preventDefault()} className={formStyles.hugeParent} id={"_form"}>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor={"pgn"}>PGN
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor={"pgn"}>
+                            <span className={`${formStyles.textBoxLabelText}`}>PGN</span>
                             <span className={`${textStyles.medium} ${textStyles.regular}`} style={{ paddingLeft: "0.5rem" }}>
                                 <Link href="/chess-nft/about#pgn">
                                     <a target={"_blank"} rel={"noreferrer"}>

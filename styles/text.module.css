@@ -63,7 +63,11 @@
 }
 
 .faint {
-    opacity: 50%;
+    color: var(--faint);
+}
+
+.gray {
+    color: var(--altBackground);
 }
 
 .mono {
@@ -78,4 +82,8 @@
 .a:hover {
     text-decoration: underline;
     cursor: pointer;
+}
+
+.noselect {
+    user-select: none;
 }

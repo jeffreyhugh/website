@@ -71,7 +71,7 @@ export default function Link() {
                             Short Links
                         </div>
                         <div className={`${textStyles.large}`}>
-                            
+
                         </div>
                     </Container>
                 </HeaderPipe>
@@ -79,7 +79,8 @@ export default function Link() {
                 <Spacer />
                 <Element>
                     <form onSubmit={handleSubmit} className={formStyles.parent}>
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="slug">Slug
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="slug">
+                            <span className={`${formStyles.textBoxLabelText}`}>Slug</span>
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
                                 <input className={`${formStyles.textBox}`} id="slug" type="text" placeholder="(Leave blank for random)" />
@@ -88,7 +89,8 @@ export default function Link() {
 
                         <HalfSpacer />
 
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="destination">Destination
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="destination">
+                            <span className={`${formStyles.textBoxLabelText}`}>Destination</span>
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
                                 <input className={`${formStyles.textBox}`} id="destination" type="text" placeholder="https://example.com" required />
@@ -97,7 +99,8 @@ export default function Link() {
 
                         <HalfSpacer />
 
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="permanent">Permanent Redirect
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="permanent">
+                            <span className={`${formStyles.textBoxLabelText}`}>Permanent Redirect</span>
                             <div style={{ width: "2rem" }}>
                                 <div className={`${formStyles.checkBoxShadowWrapper}`}>
                                     <div className={`${formStyles.checkBoxShadow}`} />
@@ -109,7 +112,8 @@ export default function Link() {
 
                         <HalfSpacer />
 
-                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">Password
+                        <label className={`${textStyles.xlarge} ${textStyles.bold} ${formStyles.textBoxLabel}`} htmlFor="password">
+                            <span className={`${formStyles.textBoxLabelText}`}>Password</span>
                             <div className={`${formStyles.textBoxShadowWrapper}`}>
                                 <div className={`${formStyles.textBoxShadow}`} />
                                 <input className={`${formStyles.textBox}`} id="password" type="password" placeholder="••••••••" required />
@@ -129,13 +133,13 @@ export default function Link() {
 
                 {links.map(link => (
                     <Element>
-                        <div style={{whiteSpace: 'nowrap'}}>
-                        {link.status === 200 ?
-                            <><span className={`${textStyles.a}`} onClick={async e => {
-                                await navigator.clipboard.writeText(`https://queue.bot/link/${link.slug}`);
-                            }}>{link.slug}</span>&nbsp;(click to copy) &rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> :
-                            <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
-                        }
+                        <div style={{ whiteSpace: 'nowrap' }}>
+                            {link.status === 200 ?
+                                <><span className={`${textStyles.a}`} onClick={async e => {
+                                    await navigator.clipboard.writeText(`https://queue.bot/link/${link.slug}`);
+                                }}>{link.slug}</span>&nbsp;(click to copy) &rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</> :
+                                <>{link.slug ? link.slug : "n/a"}&nbsp;&rarr;&nbsp;<a href={link.destination}>{link.destination}</a> &nbsp;({link.status})</>
+                            }
                         </div>
                     </Element>
                 ))}

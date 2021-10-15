@@ -10,6 +10,11 @@
     width: 100%
 }
 
+.horizontal {
+    display: flex;
+    flex-direction: row;
+}
+
 @media screen and (max-width: 900px) {
     .parent {
         width: 100%;
@@ -17,6 +22,11 @@
 
     .bigParent {
         width: 100%;
+    }
+
+    .horizontal {
+        flex-direction: column;
+        height: auto;
     }
 }
 
@@ -83,8 +93,11 @@
 }
 
 .textBoxLabel {
-    padding: 0rem 1rem;
+    padding: 0;
+}
 
+.textBoxLabelText {
+    padding: 0rem 1rem;
 }
 
 .textBox:disabled {
@@ -164,10 +177,15 @@
 }
 
 
-.defaultCheckBox:checked ~ .checkBox {
+.defaultCheckBox:checked + .checkBox {
     background-color: var(--main);
     background-image: var(--gradient);
     background-attachment: fixed;
+    border-radius: 10px;
+    margin: 0;
+    padding: 0;
+    height: 1.6rem;
+    width: 1.6rem;
 }
 
 .buttonWrapper {
