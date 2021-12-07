@@ -18,7 +18,7 @@ export default function Exec() {
                 <title>{"QueueBot - exec"}</title>
             </Head>
             <BigContainer>
-                <Spacer/>
+                <Spacer />
                 <HeaderPipe>
                     <Container>
                         <div className={`${textStyles.massive} ${textStyles.bold} ${textStyles.gradient}`}>
@@ -29,17 +29,20 @@ export default function Exec() {
                                 <a href={"https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot&permissions=298048"}>
                                     Invite the bot
                                 </a>
-                                &nbsp;or keep reading to see what it does
+                                ,&nbsp;
+                                <a href={"https://github.com/qbxt/exec"}>
+                                    check the code
+                                </a>, or keep reading to see what it does
                             </span>
                         </div>
                     </Container>
                 </HeaderPipe>
 
-                <Spacer/>
+                <Spacer />
 
                 <Element>
                     <span>
-                        exec supports Python, Go, C, Rust, Bash, and NodeJS.
+                        exec supports Python, Go, C, Rust, Bash, NodeJS, and C++.
                     </span>
                 </Element>
 
@@ -49,7 +52,7 @@ export default function Exec() {
                     </span>
                 </Element>
 
-                <Spacer/>
+                <Spacer />
 
                 <HeaderPipe>
                     <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
@@ -60,7 +63,7 @@ export default function Exec() {
                 <Element>
                     <span>
                         To run a snippet, type <code>execute </code>&nbsp;(note the space) followed by a <a
-                        href={"https://gist.github.com/matthewzring/9f7bbfd102003963f9be7dbcf7d40e51#syntax-highlighting"}>syntax-highlighted code block</a>.
+                            href={"https://gist.github.com/matthewzring/9f7bbfd102003963f9be7dbcf7d40e51#syntax-highlighting"}>syntax-highlighted code block</a>.
                     </span>
                 </Element>
 
@@ -72,11 +75,11 @@ export default function Exec() {
 
                 <Element>
                     <Image src={"/images/exec/demo.png"} width={1088} height={1013}
-                           alt={"exec demonstration"} className={styles.darkened} quality={100}/>
+                        alt={"exec demonstration"} className={styles.darkened} quality={100} />
                 </Element>
 
-                <Spacer/>
-                <Spacer/>
+                <Spacer />
+                <Spacer />
 
                 <HeaderPipe>
                     <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`}>
@@ -144,23 +147,45 @@ fn main() {
                     </Highlight>
                 </Element>
 
-                <Spacer/>
+                <Element>
+                    <Highlight language={'cpp'}>{`// input.cpp
+cout << "exec is awesome!" << endl;
+
+// ----------
+// input.cpp (wrapped)
+#include <iostream>
+#include <cstdlib>
+#include <cmath>
+#include <cstring>
+using namespace std;
+
+int main() {
+    cout << "exec is awesome!" << endl;
+}`}
+                    </Highlight>
+                </Element>
+
+                <Spacer />
 
                 <HeaderPipe>
                     <Container>
                         <div className={`${textStyles.xxlarge} ${textStyles.bold} ${textStyles.gradient}`}>
                             Ready to try exec?
                         </div>
-                        <div className={`${textStyles.large} ${textStyles.gradient}`}>
+                        <div className={`${textStyles.large}`}>
                             <a href={"https://discord.com/oauth2/authorize?client_id=830972631917789265&scope=bot&permissions=298048"}>Invite
                                 the bot</a>
+                            &nbsp;or&nbsp;
+                            <a href={"https://github.com/qbxt/exec"}>
+                                check the code
+                            </a>
                         </div>
                     </Container>
                 </HeaderPipe>
 
-                <Spacer/>
+                <Spacer />
 
-                <BackHome/>
+                <BackHome />
             </BigContainer>
         </Meta>
     )

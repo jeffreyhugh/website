@@ -2,7 +2,7 @@
     {
         "name": "exec",
         "imageURL": "/images/logo-exec.png",
-        "description": "Execute Python, Go, C, Rust, Bash, and NodeJS code straight from Discord",
+        "description": "Execute Python, Go, C, Rust, Bash, NodeJS, and C++ code straight from Discord. Now open-source",
         "order": 1,
         "link": "/exec"
     },
@@ -24,7 +24,7 @@
         "name": "Chess NFT",
         "imageURL": "/images/logo-chessnft.png",
         "description": "Mint a chessboard on the Rinkeby testnet",
-        "order": "3",
+        "order": 3,
         "link": "/chess-nft"
     }
 ]
