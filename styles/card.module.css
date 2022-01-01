@@ -6,12 +6,18 @@
     align-items: stretch;
     margin: 0 0 1rem;
     padding: 0.35rem;
-    overflow-y: scroll;
 }
 
 @media screen and (max-width: 550px) {
     .wrapper {
         justify-content: center;
+    }
+}
+
+@media screen and (max-width: 708px) {
+
+    .container {
+        overflow-y: scroll;
     }
 }
 
@@ -99,5 +105,4 @@
 
 .left {
     text-align: left;
-    overflow-y: scroll;
 }
