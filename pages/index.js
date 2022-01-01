@@ -174,6 +174,32 @@ export default function Home({ allPostsData, allLinks, allProjects, allTools }) 
                     <CopyCard title={"ETH"} content={"0x210b937aE5b3\nD0b8420bEb2103\n68d8323393F082"} />
                 </CardWrapper>
 
+                <HeaderPipe>
+                    <div className={`${textStyles.xlarge} ${textStyles.bold} ${textStyles.gradient}`} id={"gpg"}>
+                        <i className={`fa fa-key-modern ${textStyles.gradient} ${styles.rightMarginIcon}`}
+                            aria-hidden={true} />{' '}
+                        Signing Keys
+                    </div>
+                </HeaderPipe>
+
+                <CardWrapper>
+                    <CopyCard title={"GPG"}
+                        content={["-----BEGIN PGP PUBLIC KEY BLOCK-----",
+                            "",
+                            "mDMEYc5QDxYJKwYBBAHaRw8BAQdAUTIlys0iyUdiC4/bpJ6vjGJ5g7p7Wo6StrKv",
+                            "uEf2oru0E0plZmZfIDxxQHF1ZXVlLmJvdD6IkAQTFggAOBYhBKyY7dM2PzzunThp",
+                            "P21iqotNkASvBQJhzlAPAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEG1i",
+                            "qotNkASvvD4A/jVW5owzO/Vj5x5tsYrqJEThkd4phgexVg6zkuhGlqkmAP4vKtIn",
+                            "ELsq5XsxaP53eH+JiR3bO5IBF01FBBITeX7qD7g4BGHOUA8SCisGAQQBl1UBBQEB",
+                            "B0DriijKnyFFP6m9g0PsWRcQNhQhBuhgTdEx1/fGH7HrOQMBCAeIeAQYFggAIBYh",
+                            "BKyY7dM2PzzunThpP21iqotNkASvBQJhzlAPAhsMAAoJEG1iqotNkASvbdMA/1C7",
+                            "2i+w++Zp3+ZlgYNGam6HfpIeCsOdMtEN/gXYooaFAP9ZWz9zimskCm9wfeY13y51",
+                            "rAriKsPNWiY+p9lWTvawCg==",
+                            "=5/S0",
+                            "-----END PGP PUBLIC KEY BLOCK-----"].join("\n")}
+                        key={1} ignoreNewline />
+                </CardWrapper>
+
             </BigContainer>
         </Meta>
     )

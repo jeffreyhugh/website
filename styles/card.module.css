@@ -89,3 +89,13 @@
     justify-content: center;
     text-align: center;
 }
+
+.mono {
+    background-color: var(--background);
+    padding: none;
+    color: var(--textColor);
+}
+
+.left {
+    text-align: left;
+}
