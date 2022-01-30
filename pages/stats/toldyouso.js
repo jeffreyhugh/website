@@ -36,8 +36,8 @@ const Analytics = () => {
         method: "POST",
         body: JSON.stringify({
             tags: [
-                "toldyouso-encrypted",
-                "toldyouso-unencrypted",
+                "toldyouso-messageEncrypted",
+                "toldyouso-messageNotEncrypted",
             ],
             from: DateTime.now().minus({ days: 1 }).toISO(),
             to: DateTime.now().toISO(),
@@ -180,8 +180,8 @@ const Analytics = () => {
                             xFormat: "%m-%d-%Y %H:%M",
                             columns: [
                                 ["x"].concat(data_encryptedVsUnencrypted["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Encrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-encrypted"]),
-                                ["Unencrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-unencrypted"]),
+                                ["Encrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageEncrypted"]),
+                                ["Unencrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageNotEncrypted"]),
                             ],
                             type: "bar",
                             colors: {
