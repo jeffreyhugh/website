@@ -184,10 +184,7 @@ const Analytics = () => {
                                 ["Unencrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageNotEncrypted"]),
                             ],
                             type: "bar",
-                            colors: {
-                                "Encrypted": "#00ff00",
-                                "Unencrypted": "#ff0000",
-                            },
+                            colors: {},
                             groups: [
                                 ["Encrypted", "Unencrypted"]
                             ]
