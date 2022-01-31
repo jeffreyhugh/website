@@ -142,7 +142,7 @@ const Analytics = () => {
                                 ["Not Enabled"].concat(data_adsVsNoAds.data["toldyouso-canDisplayAds"]),
                                 ["Enabled"].concat(data_adsVsNoAds.data["toldyouso-canNotDisplayAds"]),
                             ],
-                            type: "bar",
+                            type: "pie",
                             colors: {
                                 "Not Enabled": "#00ff00",
                                 "Enabled": "#ff0000",
@@ -183,7 +183,7 @@ const Analytics = () => {
                                 ["Encrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageEncrypted"]),
                                 ["Unencrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageNotEncrypted"]),
                             ],
-                            type: "bar",
+                            type: "pie",
                             colors: {},
                             groups: [
                                 ["Encrypted", "Unencrypted"]
