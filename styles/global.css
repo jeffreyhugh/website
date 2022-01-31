@@ -262,7 +262,7 @@ rect.bb-circle._expanded_, use.bb-circle._expanded_ {
     stroke-width: 2px;
 }
 .bb-bar {
-    stroke-width: 0;
+    stroke-width: 1px;
 }
 .bb-bar._expanded_ {
     fill-opacity: .75;

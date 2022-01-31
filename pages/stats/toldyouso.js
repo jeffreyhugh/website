@@ -122,7 +122,9 @@ const Analytics = () => {
                                 ["Total Messages"].concat(data_adsVsNoAds.data["toldyouso-canDisplayAds"].map((x, i) => x + data_adsVsNoAds.data["toldyouso-canNotDisplayAds"][i])),
                             ],
                             type: "bar",
-                            colors: {},
+                            colors: {
+                                "Total Messages": "#676767",
+                            },
                         }} axis={{
                             x: {
                                 type: "timeseries",
@@ -158,7 +160,9 @@ const Analytics = () => {
                                 ["Copies"].concat(data_copies.data["toldyouso-messageCopy"]),
                             ],
                             type: "bar",
-                            colors: {},
+                            colors: {
+                                "Copies": "#676767",
+                            },
                         }} axis={{
                             x: {
                                 type: "timeseries",
@@ -196,8 +200,8 @@ const Analytics = () => {
                             ],
                             type: "pie",
                             colors: {
-                                "Not Enabled": "#00ff00",
-                                "Enabled": "#ff0000",
+                                "Not Enabled": "#b9b9b9",
+                                "Enabled": "#676767",
                             },
                             groups: [
                                 ["Not Enabled", "Enabled"]
@@ -236,7 +240,10 @@ const Analytics = () => {
                                 ["Unencrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageNotEncrypted"]),
                             ],
                             type: "pie",
-                            colors: {},
+                            colors: {
+                                "Encrypted": "#b9b9b9",
+                                "Unencrypted": "#676767",
+                            },
                             groups: [
                                 ["Encrypted", "Unencrypted"]
                             ]
@@ -275,7 +282,9 @@ const Analytics = () => {
                                 ["Unsubscribes"].concat(data_unsubscribes.data["toldyouso-unsubscribe"]),
                             ],
                             type: "bar",
-                            colors: {},
+                            colors: {
+                                "Unsubscribes": "#676767",
+                            },
                         }} axis={{
                             x: {
                                 type: "timeseries",
