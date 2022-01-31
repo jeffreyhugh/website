@@ -24,11 +24,11 @@ const Analytics = () => {
                 "toldyouso-canDisplayAds",
                 "toldyouso-canNotDisplayAds",
             ],
-            from: DateTime.now().minus({ days: 1 }).toISO(),
-            to: DateTime.now().toISO(),
+            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
+            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
             bucket: "1h",
         }, {
-            refreshInterval: 1000 * 60 * 60,
+            refreshInterval: 1000 * 5,
         })
     }).then(res => res.json()).catch(err => console.log(err))
 
@@ -39,11 +39,11 @@ const Analytics = () => {
                 "toldyouso-messageEncrypted",
                 "toldyouso-messageNotEncrypted",
             ],
-            from: DateTime.now().minus({ days: 1 }).toISO(),
-            to: DateTime.now().toISO(),
+            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
+            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
             bucket: "1h",
         }, {
-            refreshInterval: 1000 * 60 * 60,
+            refreshInterval: 1000 * 5,
         })
     }).then(res => res.json()).catch(err => console.log(err))
 
@@ -53,11 +53,11 @@ const Analytics = () => {
             tags: [
                 "toldyouso-unsubscribe",
             ],
-            from: DateTime.now().minus({ days: 1 }).toISO(),
-            to: DateTime.now().toISO(),
+            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
+            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
             bucket: "1h",
         }, {
-            refreshInterval: 1000 * 60 * 60,
+            refreshInterval: 1000 * 5,
         })
     }).then(res => res.json()).catch(err => console.log(err))
 
@@ -67,11 +67,11 @@ const Analytics = () => {
             tags: [
                 "toldyouso-messageCopy",
             ],
-            from: DateTime.now().minus({ days: 1 }).toISO(),
-            to: DateTime.now().toISO(),
+            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
+            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
             bucket: "1h",
         }, {
-            refreshInterval: 1000 * 60 * 60,
+            refreshInterval: 1000 * 5,
         })
     }).then(res => res.json()).catch(err => console.log(err))
 
