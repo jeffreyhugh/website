@@ -61,12 +61,28 @@ const Analytics = () => {
         })
     }).then(res => res.json()).catch(err => console.log(err))
 
+    const fetcher_copies = (...args) => fetch("https://api.queue.bot/stats/v1/fetch", {
+        method: "POST",
+        body: JSON.stringify({
+            tags: [
+                "toldyouso-messageCopy",
+            ],
+            from: DateTime.now().minus({ days: 1 }).toISO(),
+            to: DateTime.now().toISO(),
+            bucket: "1h",
+        }, {
+            refreshInterval: 1000 * 60 * 60,
+        })
+    }).then(res => res.json()).catch(err => console.log(err))
+
     const swr1 = useSWR('adsVsNoAds', fetcher)
     const data_adsVsNoAds = swr1.data, error_adsVsNoAds = swr1.error
     const swr2 = useSWR('encryptedVsUnencrypted', fetcher_encryptedVsUnencrypted)
     const data_encryptedVsUnencrypted = swr2.data, error_encryptedVsUnencrypted = swr2.error
     const swr3 = useSWR('unsubscribes', fetcher_unsubscribes)
     const data_unsubscribes = swr3.data, error_unsubscribes = swr3.error
+    const swr4 = useSWR('copies', fetcher_copies)
+    const data_copies = swr4.data, error_copies = swr4.error
 
     return (
         <Meta>
@@ -188,6 +204,42 @@ const Analytics = () => {
                             groups: [
                                 ["Encrypted", "Unencrypted"]
                             ]
+                        }} axis={{
+                            x: {
+                                type: "timeseries",
+                                tick: {
+                                    format: "%m-%d-%Y %H:%M",
+                                    autorotate: true,
+                                    rotate: 15,
+                                }
+                            }
+                        }} />}
+                </Element>
+
+                <Spacer />
+
+                <HeaderPipe>
+                    <Container>
+                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Copies
+                        </div>
+                    </Container>
+                </HeaderPipe>
+                <Element>
+                    {!data_copies ?
+                        error_copies ?
+                            <span>Could not load data</span> :
+                            <span>
+                                <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
+                            </span> :
+                        <BillboardChart data={{
+                            x: "x",
+                            xFormat: "%m-%d-%Y %H:%M",
+                            columns: [
+                                ["x"].concat(data_copies["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
+                                ["Copies"].concat(data_copies.data["toldyouso-messageCopy"]),
+                            ],
+                            type: "bar",
+                            colors: {},
                         }} axis={{
                             x: {
                                 type: "timeseries",
