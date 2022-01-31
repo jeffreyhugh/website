@@ -139,6 +139,42 @@ const Analytics = () => {
 
                 <HeaderPipe>
                     <Container>
+                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Copies
+                        </div>
+                    </Container>
+                </HeaderPipe>
+                <Element>
+                    {!data_copies ?
+                        error_copies ?
+                            <span>Could not load data</span> :
+                            <span>
+                                <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
+                            </span> :
+                        <BillboardChart data={{
+                            x: "x",
+                            xFormat: "%m-%d-%Y %H:%M",
+                            columns: [
+                                ["x"].concat(data_copies["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
+                                ["Copies"].concat(data_copies.data["toldyouso-messageCopy"]),
+                            ],
+                            type: "bar",
+                            colors: {},
+                        }} axis={{
+                            x: {
+                                type: "timeseries",
+                                tick: {
+                                    format: "%m-%d-%Y %H:%M",
+                                    autorotate: true,
+                                    rotate: 15,
+                                }
+                            }
+                        }} />}
+                </Element>
+
+                <Spacer />
+
+                <HeaderPipe>
+                    <Container>
                         <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> AdBlockers Enabled
                         </div>
                     </Container>
@@ -204,42 +240,6 @@ const Analytics = () => {
                             groups: [
                                 ["Encrypted", "Unencrypted"]
                             ]
-                        }} axis={{
-                            x: {
-                                type: "timeseries",
-                                tick: {
-                                    format: "%m-%d-%Y %H:%M",
-                                    autorotate: true,
-                                    rotate: 15,
-                                }
-                            }
-                        }} />}
-                </Element>
-
-                <Spacer />
-
-                <HeaderPipe>
-                    <Container>
-                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Copies
-                        </div>
-                    </Container>
-                </HeaderPipe>
-                <Element>
-                    {!data_copies ?
-                        error_copies ?
-                            <span>Could not load data</span> :
-                            <span>
-                                <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
-                            </span> :
-                        <BillboardChart data={{
-                            x: "x",
-                            xFormat: "%m-%d-%Y %H:%M",
-                            columns: [
-                                ["x"].concat(data_copies["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Copies"].concat(data_copies.data["toldyouso-messageCopy"]),
-                            ],
-                            type: "bar",
-                            colors: {},
                         }} axis={{
                             x: {
                                 type: "timeseries",
