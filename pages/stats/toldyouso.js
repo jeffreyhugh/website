@@ -4,6 +4,7 @@ import Link from 'next/link'
 import Meta from '../../components/meta'
 import Date from '../../components/date'
 import styles from "../../styles/shared.module.css"
+import formStyles from "../../styles/form.module.css";
 import textStyles from "../../styles/text.module.css"
 import HeaderPipe from "../../components/headerPipe";
 import BigContainer from "../../components/bigContainer";
@@ -12,77 +13,69 @@ import Container from "../../components/container";
 import Element from "../../components/element";
 import useSWR from 'swr';
 import { DateTime } from 'luxon'
+import { useState } from 'react'
 
 import BillboardChart from "react-billboardjs";
 
 const Analytics = () => {
 
-    const fetcher = (...args) => fetch("https://api.queue.bot/stats/v1/fetch", {
+    const metrics = {
+        "last_30m": {
+            from: DateTime.now().minus({ minutes: 30 }).toISO(),
+            to: DateTime.now().toISO(),
+            bucket: "1m",
+        },
+        "last_1h": {
+            from: DateTime.now().minus({ hours: 1 }).toISO(),
+            to: DateTime.now().toISO(),
+            bucket: "1m",
+        },
+        "current_1h": {
+            from: DateTime.now().plus({ hours: 1 }).startOf('hour').minus({ hours: 1 }).toISO(),
+            to: DateTime.now().plus({ hours: 1 }).startOf('hour').toISO(),
+            bucket: "1m",
+        },
+        "last_24h": {
+            from: DateTime.now().plus({ hours: 1 }).startOf('hour').minus({ days: 1 }).toISO(),
+            to: DateTime.now().plus({ hours: 1 }).startOf('hour').toISO(),
+            bucket: "1h",
+        },
+        "current_24h": {
+            from: DateTime.now().plus({ days: 1 }).startOf('day').minus({ days: 1 }).toISO(),
+            to: DateTime.now().plus({ days: 1 }).startOf('day').toISO(),
+            bucket: "1h",
+        },
+        "current_30d": {
+            from: DateTime.now().plus({ months: 1 }).startOf('month').minus({ months: 1 }).toISO(),
+            to: DateTime.now().plus({ months: 1 }).startOf('month').toISO(),
+            bucket: "24h",
+        }
+    }
+
+    const [selectedMetric, setSelectedMetric] = useState("last_24h")
+
+    const fetcher = (tags, m) => fetch("https://api.queue.bot/stats/v1/fetch", {
         method: "POST",
         body: JSON.stringify({
-            tags: [
-                "toldyouso-canDisplayAds",
-                "toldyouso-canNotDisplayAds",
-            ],
-            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
-            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
-            bucket: "1h",
+            tags: tags,
+            from: metrics[m].from,
+            to: metrics[m].to,
+            bucket: metrics[m].bucket,
         }, {
-            refreshInterval: 1000 * 5,
+            refreshInterval: 5000,
         })
-    }).then(res => res.json()).catch(err => console.log(err))
+    }).then(res => res.json())
 
-    const fetcher_encryptedVsUnencrypted = (...args) => fetch("https://api.queue.bot/stats/v1/fetch", {
-        method: "POST",
-        body: JSON.stringify({
-            tags: [
-                "toldyouso-messageEncrypted",
-                "toldyouso-messageNotEncrypted",
-            ],
-            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
-            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
-            bucket: "1h",
-        }, {
-            refreshInterval: 1000 * 5,
-        })
-    }).then(res => res.json()).catch(err => console.log(err))
-
-    const fetcher_unsubscribes = (...args) => fetch("https://api.queue.bot/stats/v1/fetch", {
-        method: "POST",
-        body: JSON.stringify({
-            tags: [
-                "toldyouso-unsubscribe",
-            ],
-            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
-            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
-            bucket: "1h",
-        }, {
-            refreshInterval: 1000 * 5,
-        })
-    }).then(res => res.json()).catch(err => console.log(err))
-
-    const fetcher_copies = (...args) => fetch("https://api.queue.bot/stats/v1/fetch", {
-        method: "POST",
-        body: JSON.stringify({
-            tags: [
-                "toldyouso-messageCopy",
-            ],
-            from: DateTime.now().plus({ hours: 1}).startOf('hour').minus({ days: 1 }).toISO(),
-            to: DateTime.now().plus({ hours: 1}).startOf('hour').toISO(),
-            bucket: "1h",
-        }, {
-            refreshInterval: 1000 * 5,
-        })
-    }).then(res => res.json()).catch(err => console.log(err))
-
-    const swr1 = useSWR('adsVsNoAds', fetcher)
-    const data_adsVsNoAds = swr1.data, error_adsVsNoAds = swr1.error
-    const swr2 = useSWR('encryptedVsUnencrypted', fetcher_encryptedVsUnencrypted)
-    const data_encryptedVsUnencrypted = swr2.data, error_encryptedVsUnencrypted = swr2.error
-    const swr3 = useSWR('unsubscribes', fetcher_unsubscribes)
-    const data_unsubscribes = swr3.data, error_unsubscribes = swr3.error
-    const swr4 = useSWR('copies', fetcher_copies)
-    const data_copies = swr4.data, error_copies = swr4.error
+    const tags = [
+        "toldyouso-canDisplayAds",
+        "toldyouso-canNotDisplayAds",
+        "toldyouso-messageEncrypted",
+        "toldyouso-messageNotEncrypted",
+        "toldyouso-unsubscribe",
+        "toldyouso-messageCopy",
+    ]
+    Object.keys(metrics).forEach(k => { useSWR([tags, k], fetcher) })
+    const { data, error } = useSWR([tags, selectedMetric], fetcher)
 
     return (
         <Meta>
@@ -101,53 +94,38 @@ const Analytics = () => {
 
                 <Spacer />
 
-                <HeaderPipe>
-                    <Container>
-                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Total Messages
-                        </div>
-                    </Container>
-                </HeaderPipe>
                 <Element>
-                    {!data_adsVsNoAds ?
-                        error_adsVsNoAds ?
-                            <span>Could not load data</span> :
-                            <span>
-                                <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
-                            </span> :
-                        <BillboardChart data={{
-                            x: "x",
-                            xFormat: "%m-%d-%Y %H:%M",
-                            columns: [
-                                ["x"].concat(data_adsVsNoAds["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Total Messages"].concat(data_adsVsNoAds.data["toldyouso-canDisplayAds"].map((x, i) => x + data_adsVsNoAds.data["toldyouso-canNotDisplayAds"][i])),
-                            ],
-                            type: "bar",
-                            colors: {
-                                "Total Messages": "#676767",
-                            },
-                        }} axis={{
-                            x: {
-                                type: "timeseries",
-                                tick: {
-                                    format: "%m-%d-%Y %H:%M",
-                                    autorotate: true,
-                                    rotate: 15,
-                                }
-                            }
-                        }} />}
+                    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+                        {[
+                            { name: "last_30m", label: "Last 30m" },
+                            { name: "last_1h", label: "Last 1h" },
+                            { name: "current_1h", label: "Current 1h" },
+                            { name: "last_24h", label: "Last 24h" },
+                            { name: "current_24h", label: "Current 24h" },
+                            { name: "current_30d", label: "Current 30d" },
+                        ].map(m => (
+                            // <div className={`${formStyles.buttonWrapper}`}>
+                            <button className={`${selectedMetric === m.name ? formStyles.button : formStyles.buttonBlank}`}
+                                onClick={() => setSelectedMetric(m.name)}
+                                style={{ flexGrow: 0 }}>
+                                {m.label}
+                            </button>
+                            // </div>
+                        ))}
+                    </div>
                 </Element>
 
                 <Spacer />
 
                 <HeaderPipe>
                     <Container>
-                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Copies
+                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Messages and Copies
                         </div>
                     </Container>
                 </HeaderPipe>
                 <Element>
-                    {!data_copies ?
-                        error_copies ?
+                    {!data ?
+                        error ?
                             <span>Could not load data</span> :
                             <span>
                                 <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
@@ -156,11 +134,13 @@ const Analytics = () => {
                             x: "x",
                             xFormat: "%m-%d-%Y %H:%M",
                             columns: [
-                                ["x"].concat(data_copies["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Copies"].concat(data_copies.data["toldyouso-messageCopy"]),
+                                ["x"].concat(data["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
+                                ["Messages"].concat(data.data["toldyouso-canDisplayAds"].map((x, i) => x + data.data["toldyouso-canNotDisplayAds"][i])),
+                                ["Copies"].concat(data.data["toldyouso-messageCopy"]),
                             ],
                             type: "bar",
                             colors: {
+                                "Messages": "#b9b9b9",
                                 "Copies": "#676767",
                             },
                         }} axis={{
@@ -172,20 +152,21 @@ const Analytics = () => {
                                     rotate: 15,
                                 }
                             }
-                        }} />}
+                        }} />
+                    }
                 </Element>
 
                 <Spacer />
 
                 <HeaderPipe>
                     <Container>
-                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> AdBlockers Enabled
+                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> AdBlockers
                         </div>
                     </Container>
                 </HeaderPipe>
                 <Element>
-                    {!data_adsVsNoAds ?
-                        error_adsVsNoAds ?
+                    {!data ?
+                        error ?
                             <span>Could not load data</span> :
                             <span>
                                 <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
@@ -194,18 +175,15 @@ const Analytics = () => {
                             x: "x",
                             xFormat: "%m-%d-%Y %H:%M",
                             columns: [
-                                ["x"].concat(data_adsVsNoAds["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Not Enabled"].concat(data_adsVsNoAds.data["toldyouso-canDisplayAds"]),
-                                ["Enabled"].concat(data_adsVsNoAds.data["toldyouso-canNotDisplayAds"]),
+                                ["x"].concat(data["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
+                                ["Not Enabled"].concat(data.data["toldyouso-canDisplayAds"]),
+                                ["Enabled"].concat(data.data["toldyouso-canNotDisplayAds"]),
                             ],
                             type: "pie",
                             colors: {
                                 "Not Enabled": "#b9b9b9",
                                 "Enabled": "#676767",
                             },
-                            groups: [
-                                ["Not Enabled", "Enabled"]
-                            ]
                         }} axis={{
                             x: {
                                 type: "timeseries",
@@ -215,7 +193,8 @@ const Analytics = () => {
                                     rotate: 15,
                                 }
                             }
-                        }} />}
+                        }} />
+                    }
                 </Element>
 
                 <Spacer />
@@ -227,17 +206,17 @@ const Analytics = () => {
                     </Container>
                 </HeaderPipe>
                 <Element>
-                    {!data_encryptedVsUnencrypted ?
-                        error_encryptedVsUnencrypted ?
+                    {!data ?
+                        error ?
                             <span>Could not load data</span> :
                             <span style={{ backgroundColor: "#0f0f0f" }} ><i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...</span> :
                         <BillboardChart data={{
                             x: "x",
                             xFormat: "%m-%d-%Y %H:%M",
                             columns: [
-                                ["x"].concat(data_encryptedVsUnencrypted["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Encrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageEncrypted"]),
-                                ["Unencrypted"].concat(data_encryptedVsUnencrypted.data["toldyouso-messageNotEncrypted"]),
+                                ["x"].concat(data["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
+                                ["Encrypted"].concat(data.data["toldyouso-messageEncrypted"]),
+                                ["Unencrypted"].concat(data.data["toldyouso-messageNotEncrypted"]),
                             ],
                             type: "pie",
                             colors: {
@@ -247,44 +226,6 @@ const Analytics = () => {
                             groups: [
                                 ["Encrypted", "Unencrypted"]
                             ]
-                        }} axis={{
-                            x: {
-                                type: "timeseries",
-                                tick: {
-                                    format: "%m-%d-%Y %H:%M",
-                                    autorotate: true,
-                                    rotate: 15,
-                                }
-                            }
-                        }} />}
-                </Element>
-
-                <Spacer />
-
-                <HeaderPipe>
-                    <Container>
-                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Unsubscribes
-                        </div>
-                    </Container>
-                </HeaderPipe>
-                <Element>
-                    {!data_unsubscribes ?
-                        error_unsubscribes ?
-                            <span>Could not load data</span> :
-                            <span>
-                                <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
-                            </span> :
-                        <BillboardChart data={{
-                            x: "x",
-                            xFormat: "%m-%d-%Y %H:%M",
-                            columns: [
-                                ["x"].concat(data_unsubscribes["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
-                                ["Unsubscribes"].concat(data_unsubscribes.data["toldyouso-unsubscribe"]),
-                            ],
-                            type: "bar",
-                            colors: {
-                                "Unsubscribes": "#676767",
-                            },
                         }} axis={{
                             x: {
                                 type: "timeseries",

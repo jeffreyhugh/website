@@ -205,7 +205,7 @@
     border-radius: 10px;
     padding: 0.3rem 0.7rem;
     box-sizing: border-box;
-    border: var(--altBackground);
+    border-color: var(--altBackground);
     /* width: min(30rem, 95%); */
 }
 
@@ -219,9 +219,28 @@
     border-radius: 10px;
     padding: 0.3rem 0.7rem;
     box-sizing: border-box;
-    border: var(--altBackground);
+    border-color: var(--altBackground);
+    border-style: solid;
+    cursor: pointer;
     /* width: min(30rem, 95%); */
 
+}
+
+.buttonBlank {
+    flex-grow: 1;
+    background-color: var(--background);
+    background-image: var(--background);
+    background-attachment: fixed;
+    font-size: 1rem;
+    margin: 0.45rem;
+    border-radius: 10px;
+    padding: 0.3rem 0.7rem;
+    box-sizing: border-box;
+    border-color: var(--altBackground);
+    border-style: solid;
+    cursor: pointer;
+    /* border-width: 7px; */
+    /* width: min(30rem, 95%); */
 }
 
 .button:hover {
