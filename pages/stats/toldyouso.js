@@ -14,10 +14,12 @@ import Element from "../../components/element";
 import useSWR from 'swr';
 import { DateTime } from 'luxon'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
 
 import BillboardChart from "react-billboardjs";
 
-const Analytics = () => {
+const Analytics = ({ metricProp }) => {
+    const router = useRouter();
 
     const metrics = {
         "last_30m": {
@@ -52,7 +54,7 @@ const Analytics = () => {
         }
     }
 
-    const [selectedMetric, setSelectedMetric] = useState("last_24h")
+    const [selectedMetric, setSelectedMetric] = useState(metricProp)
 
     const fetcher = (tags, m) => fetch("https://api.queue.bot/stats/v1/fetch", {
         method: "POST",
@@ -106,8 +108,8 @@ const Analytics = () => {
                         ].map(m => (
                             // <div className={`${formStyles.buttonWrapper}`}>
                             <button className={`${selectedMetric === m.name ? formStyles.button : formStyles.buttonBlank}`}
-                                onClick={() => setSelectedMetric(m.name)}
-                                style={{ flexGrow: 0 }}>
+                                onClick={() => { setSelectedMetric(m.name); router.replace(`/stats/toldyouso?t=${m.name}`) }}
+                                style={{ flexGrow: 0 }} key={m.name}>
                                 {m.label}
                             </button>
                             // </div>
@@ -240,6 +242,15 @@ const Analytics = () => {
             </BigContainer>
         </Meta>
     )
+}
+
+export const getServerSideProps = async (ctx) => {
+    const t = ctx.query.t;
+    return {
+        props: {
+            metricProp: t,
+        }
+    }
 }
 
 export default Analytics
