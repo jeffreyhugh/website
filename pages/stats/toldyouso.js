@@ -248,7 +248,7 @@ export const getServerSideProps = async (ctx) => {
     const t = ctx.query.t;
     return {
         props: {
-            metricProp: t,
+            metricProp: t ? t : "last_24h",
         }
     }
 }
