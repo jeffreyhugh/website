@@ -239,6 +239,45 @@ const Analytics = ({ metricProp }) => {
                             }
                         }} />}
                 </Element>
+
+                <Spacer />
+
+                <HeaderPipe>
+                    <Container>
+                        <div className={`${textStyles.large} ${textStyles.bold} ${textStyles.gradient}`}> Unsubscribes
+                        </div>
+                    </Container>
+                </HeaderPipe>
+                <Element>
+                    {!data ?
+                        error ?
+                            <span>Could not load data</span> :
+                            <span>
+                                <i className={"fa fa-circle-o-notch fa-spin"} aria-hidden /> Loading...
+                            </span> :
+                        <BillboardChart data={{
+                            x: "x",
+                            xFormat: "%m-%d-%Y %H:%M",
+                            columns: [
+                                ["x"].concat(data["x"].map(x => DateTime.fromISO(x).toFormat("MM-dd-yyyy HH:mm"))),
+                                ["Unsubscribes"].concat(data.data["toldyouso-unsubscribe"].map((x, i) => x + data.data["toldyouso-unsubscribe"][i])),
+                            ],
+                            type: "bar",
+                            colors: {
+                                "Unsubscribes": "#b9b9b9",
+                            },
+                        }} axis={{
+                            x: {
+                                type: "timeseries",
+                                tick: {
+                                    format: "%m-%d-%Y %H:%M",
+                                    autorotate: true,
+                                    rotate: 15,
+                                }
+                            }
+                        }} />
+                    }
+                </Element>
             </BigContainer>
         </Meta>
     )
