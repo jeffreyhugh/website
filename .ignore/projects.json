@@ -9,7 +9,7 @@
     {
         "name": "told-you.so",
         "imageURL": "/images/logo-toldyouso.png",
-        "description": "A simple time capsule for messages so I could learn TailwindCSS and serverless functions",
+        "description": "A simple time capsule for messages, now serving ",
         "order": 2,
         "link": "https://told-you.so"
     },
@@ -26,5 +26,12 @@
         "description": "Mint a chessboard on the Rinkeby testnet",
         "order": 3,
         "link": "/chess-nft"
+    },
+    {
+        "name": "Infinite Whiteboard (iwb.app)",
+        "imageURL": "",
+        "description": "Just like a regular whiteboard, but without the size constraint",
+        "order": 4,
+        "link": "https://iwb.app"
     }
 ]

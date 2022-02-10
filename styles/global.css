@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Arimo';
-    src: url("/fonts/Arimo/Arimo.ttf");
+    font-family: 'Quicksand';
+    src: url("/fonts/Quicksand/Quicksand.ttf");
     font-style: normal;
     font-weight: 400;
     font-display: swap;
@@ -54,7 +54,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: Arimo, sans-serif;
+    font-family: Quicksand, sans-serif;
     font-size: 20px;
 }
 

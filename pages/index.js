@@ -63,20 +63,11 @@ export default function Home({ allPostsData, allLinks, allProjects, allTools }) 
                         <br />
 
                         <span>
-                            I'm a fullstack engineer specializing in Go with professional experience at
+                            I'm a fullstack engineer building all kinds of fun projects. My big projects are <a href={"#projects"}>listed below</a>.
                         </span>
-                        <ul>
-                            <li>
-                                <Link href={'https://www.cs.nmt.edu'}><a>New Mexico Tech</a></Link>, as a sysadmin, head
-                                TA, and developer of the infamous Benson Bot
-                            </li>
-                            <li>
-                                <Link href={'https://bluehalo.com'}><a>BlueHalo</a></Link>, building something cool
-                            </li>
-                        </ul>
-
+                        
                         <br />
-
+                        
                         <span>
                             I also build keyboards in my free time!
                             Since I get a lot of questions about how I use my 40% ortho as a daily driver, I <Link
